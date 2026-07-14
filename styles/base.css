@@ -1,0 +1,28 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+header{
+    padding-top: 10px;
+    background-color: #2B5748;
+}
+#course-title{
+    display: block;
+    margin: 10px 0px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #9CB080;
+}
+nav a {
+	color: black;
+	padding: 1rem;
+	text-decoration: none;
+    margin: 0px 5px;
+}
