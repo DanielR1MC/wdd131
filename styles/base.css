@@ -15,6 +15,10 @@ header{
     color: white;
     font-size: 18px;
 }
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+}
 .main-n {
     display: flex;
     justify-content: space-around;
