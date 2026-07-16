@@ -65,6 +65,7 @@ figure img {
     height: auto;
     object-fit: cover;
 }
+figcaption{padding:10px;}
 
 
 footer{
