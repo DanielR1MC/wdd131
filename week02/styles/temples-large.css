@@ -21,6 +21,9 @@ nav div {
     font-size: 1.5rem;
     font-weight: bold;
 }
+#menu {
+    display: none;
+}
 nav ul{
     display: flex;
     list-style: none;
