@@ -27,6 +27,10 @@ header{
     margin: 0px 5px;
     font-size: 17px;
 }
+.main-a:hover {
+    background-color: #273338;
+    color: white;
+}
 h1{
     text-align: center;
     margin: 10px 0px;
@@ -36,20 +40,23 @@ h1{
     justify-content: center;
     font-size: 22px;
 }
-.card1{
+.card {
     display: flex;
-    border: solid black;
+    border: 1px solid #ccc;
     flex-direction: column;
-    width: 55%;
-    margin: 50px;
+    margin: 40px;
     border-radius: 15px; 
     overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-.c1r1{
-    display: flex;
-    flex-direction: row;
+.card1{
+    width: 55%;
+    min-width: 320px;
 }
-.c1r2{
+.card2{
+    width: 300px;
+}
+.c1r1, .c1r2{
     display: flex;
     flex-direction: row;
 }
@@ -64,15 +71,6 @@ h1{
 .img2{
     margin: 10px;
 }
-.card2{
-    display: flex;
-    border: solid black;
-    flex-direction: column;
-    width: 300px;
-    margin: 50px;
-    border-radius: 15px; 
-    overflow: hidden;
-}
 .mid-nav{
     margin-left: 30px ;
     display: flex;
@@ -80,6 +78,9 @@ h1{
     justify-content: center;
     height: 100%;
     gap: 8px;
+}
+.mid-nav li a:hover {
+    color: #2B5748;
 }
 .title{
     background-color: #9CB080 ;
