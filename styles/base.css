@@ -15,7 +15,7 @@ header{
     color: white;
     font-size: 18px;
 }
-.main-nav {
+.main-n {
     display: flex;
     justify-content: space-around;
     background-color: #9CB080;
