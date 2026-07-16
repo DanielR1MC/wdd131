@@ -65,9 +65,8 @@ figure img {
     height: auto;
     object-fit: cover;
 }
-figcaption{padding:10px;}
-
-
+figcaption{padding:10px;
+}
 footer{
     background-color:#2B5748 ;
     padding: 34px;
