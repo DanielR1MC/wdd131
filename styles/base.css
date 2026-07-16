@@ -95,4 +95,9 @@ div p{
 footer{
     background-color:#2B5748 ;
     padding: 34px;
+    text-align: center;
+    color: white;
+}
+#lastModified{
+    color: yellow;
 }
