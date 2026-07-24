@@ -52,7 +52,11 @@ section h2 {
 section p {
     margin-bottom: 0.4rem;
 }
-
+.weather-img {
+    width: 70px;
+    display: block;
+    margin: 0px auto 15px auto;
+}
 footer {
     background-color: #2B5748;
     padding: 16px;
@@ -68,6 +72,9 @@ footer {
         grid-template-rows: 2fr 1fr 2fr;
         grid-template-columns: 1fr 2fr 1fr;
         height: 502px;
+    }
+    .weather-img {
+        display: none;
     }
     main picture {
         grid-column: 1 / -1;
