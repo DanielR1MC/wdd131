@@ -1,0 +1,22 @@
+section {
+    background-color: #00000075;             /* Fondo blanco limpio */
+    padding: 1.5rem;                       /* Espacio interno para que el texto no pegue de los bordes */
+    border-radius: 8px;                    /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);/* Sombra suave para dar efecto de elevación */
+    width: 100%;                           /* En móvil ocupa el ancho disponible */
+    max-width: 320px;                      /* Ancho máximo para que no se estire demasiado */
+    margin: 1rem auto;                     /* Centrado automático en móvil */
+}
+section h2 {
+    color: #0056b3;                        /* Color del título (ajústalo a tu paleta) */
+    font-size: 1.3rem;
+    border-bottom: 2px solid #0056b3;      /* Línea decorativa debajo del título */
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+main section p {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
