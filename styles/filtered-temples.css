@@ -59,14 +59,14 @@ figure {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 8px;
 }
 figure img {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
-figcaption{padding:10px;
-}
+figcaption{padding:10px;}
 footer{
     background-color:#2B5748 ;
     padding: 34px;
@@ -76,10 +76,7 @@ footer{
 #lastModified{
     color: yellow;
 }
-figure {
-    gap: 8px;
-    align-items: center;
-}
+
 
 figure h3 {
     color: #2B5748;
@@ -95,6 +92,7 @@ figure p {
     font-weight: bold;
     color: #000;
 }
+
 
 @media (max-width: 700px) {
         nav {
