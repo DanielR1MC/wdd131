@@ -61,22 +61,6 @@ figure {
     justify-content: space-between;
     gap: 8px;
 }
-figure img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-figcaption{padding:10px;}
-footer{
-    background-color:#2B5748 ;
-    padding: 34px;
-    text-align: center;
-    color: white;
-}
-#lastModified{
-    color: yellow;
-}
-
 
 figure h3 {
     color: #2B5748;
@@ -93,7 +77,21 @@ figure p {
     color: #000;
 }
 
-
+figure img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+figcaption{padding:10px;}
+footer{
+    background-color:#2B5748 ;
+    padding: 34px;
+    text-align: center;
+    color: white;
+}
+#lastModified{
+    color: yellow;
+}
 @media (max-width: 700px) {
         nav {
         flex-direction: column;
