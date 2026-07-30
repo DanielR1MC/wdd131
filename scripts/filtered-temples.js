@@ -1,8 +1,18 @@
+// Footer dates
 const currentYear = new Date().getFullYear();
 document.getElementById("currentyear").textContent = currentYear;
-
 document.getElementById("lastModified").innerHTML = document.lastModified;
 
+// Responsive Menu Toggle
+const mainnav = document.querySelector('nav ul');
+const hambutton = document.querySelector('#menu');
+
+hambutton.addEventListener('click', () => {
+    mainnav.classList.toggle('show');
+    hambutton.classList.toggle('show');
+});
+
+// Temples Array
 const temples = [
   {
     templeName: "Aba Nigeria",
@@ -60,4 +70,99 @@ const temples = [
     imageUrl:
     "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
   },
+  {
+    templeName: "Salt Lake Utah",
+    location: "Salt Lake City, Utah, United States",
+    dedicated: "1893, April, 6",
+    area: 382207,
+    imageUrl:
+    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/2018/400x250/slctemple7.jpg"
+  },
+  {
+    templeName: "Caracas Venezuela",
+    location: "Caracas, Venezuela",
+    dedicated: "2000, August, 20",
+    area: 15332,
+    imageUrl:
+    "https://www.churchofjesuschrist.org/imgs/5358fcd9eafe59917f2deaccb97c6b6308640b7a/full/640%2C/0/default"
+  },
+  {
+    templeName: "Bern Switzerland",
+    location: "Münchenbuchsee, Switzerland",
+    dedicated: "1955, September, 11",
+    area: 35500,
+    imageUrl:
+    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/bern-switzerland/400x250/bern-switzerland-temple-lds-653038-wallpaper.jpg"
+  }
 ];
+
+const mainContainer = document.querySelector("main");
+const mainHeading = document.querySelector("main h1");
+
+function createTempleCard(filteredTemples) {
+  const cards = mainContainer.querySelectorAll("figure");
+  cards.forEach(card => card.remove());
+
+  filteredTemples.forEach(temple => {
+    let card = document.createElement("figure");
+    let name = document.createElement("h3");
+    let location = document.createElement("p");
+    let dedicated = document.createElement("p");
+    let area = document.createElement("p");
+    let img = document.createElement("img");
+
+    name.textContent = temple.templeName;
+    location.innerHTML = `<span class="label">Location:</span> ${temple.location}`;
+    dedicated.innerHTML = `<span class="label">Dedicated:</span> ${temple.dedicated}`;
+    area.innerHTML = `<span class="label">Size:</span> ${temple.area} sq ft`;
+
+    img.setAttribute("src", temple.imageUrl);
+    img.setAttribute("alt", `${temple.templeName} Temple`);
+    img.setAttribute("loading", "lazy");
+
+    card.appendChild(name);
+    card.appendChild(location);
+    card.appendChild(dedicated);
+    card.appendChild(area);
+    card.appendChild(img);
+
+    mainContainer.appendChild(card);
+  });
+}
+
+const navLinks = document.querySelectorAll("nav ul li a");
+
+navLinks.forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const filter = link.textContent.trim();
+    mainHeading.textContent = filter;
+
+    switch (filter) {
+      case "Old":
+        createTempleCard(temples.filter(temple => {
+          const year = parseInt(temple.dedicated.split(",")[0]);
+          return year < 1900;
+        }));
+        break;
+      case "New":
+        createTempleCard(temples.filter(temple => {
+          const year = parseInt(temple.dedicated.split(",")[0]);
+          return year > 2000;
+        }));
+        break;
+      case "Large":
+        createTempleCard(temples.filter(temple => temple.area > 90000));
+        break;
+      case "Small":
+        createTempleCard(temples.filter(temple => temple.area < 10000));
+        break;
+      case "Home":
+      default:
+        createTempleCard(temples);
+        break;
+    }
+  });
+});
+
+createTempleCard(temples);
