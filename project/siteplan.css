@@ -32,6 +32,9 @@ h1, h2, h3 {
     text-align: center;
     flex: 1;
 }
+.onee{ background-color: #1a252c;}
+.twow{ background-color: #2ecc71;}
+.threee{background-color: #f4f6f8; color: #333; border: 1px solid #ccc}
 .wireframe-container {
     display: flex;
     gap: 20px;
