@@ -54,8 +54,8 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+    align-items: start;
 }
-
 /* Tarjetas individuales de ejercicio */
 .ex-card {
     background: #ffffff;
