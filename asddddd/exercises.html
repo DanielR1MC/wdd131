@@ -15,7 +15,7 @@
 </head>
 <body>
     <header>
-        <span id="nav-title"> FitGuide - Home Hub </span>
+        <span id="nav-title"> FitGuide - Exercises Hub </span>
         <nav class="main-n">
             <a href="index.html" class="main-a">Home</a>
             <a href="exercises.html" class="main-a">Exercises</a>
@@ -26,16 +26,12 @@
         <section class="filter-section">
             <h1>Exercise Library</h1>
             <p>Filter movements by targeted muscle group and equipment:</p>
-    
-    <!-- Fila 1: Filtro por Musculo/Categoria -->
             <div class="filter-group category-group">
                 <button class="filter-btn active" data-category="all">All Exercises</button>
                 <button class="filter-btn" data-category="upper">Upper Body</button>
                 <button class="filter-btn" data-category="arms">Arms</button>
                 <button class="filter-btn" data-category="lower">Lower Body</button>
             </div>
-
-    <!-- Fila 2: Filtro por Equipamiento -->
                 <div class="filter-group equipment-group">
                 <button class="filter-btn active" data-equipment="all">All Equipment</button>
                 <button class="filter-btn" data-equipment="barbell">Barbell</button>
@@ -44,12 +40,8 @@
             </div>
         </section>
 
-        <!-- Aquí JavaScript insertará las tarjetas automáticamente -->
         <section id="exercise-grid" class="exercise-grid"></section>
     </main>
-
-
-
     <footer>
         <p> <span id="currentyear"></span> ©️ Daniel Reyes - Venezuela </p>  
         <p id="lastModified"></p>

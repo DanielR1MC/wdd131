@@ -5,7 +5,6 @@
     --text-color: #000000;
     --text-color2: #fff ; 
 }
-
 .exercises-container {
     max-width: 1100px;
     margin: 30px auto 40px auto;
@@ -15,13 +14,11 @@
     gap: 25px;
 }
 
-/* Filtros */
 .filter-section {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
-
 .filter-group {
     display: flex;
     flex-wrap: wrap;
@@ -32,18 +29,15 @@
     font-size: 2rem;
     margin-bottom: 8px;
 }
-
 .filter-section p {
     color: #555;
     margin-bottom: 15px;
 }
-
 .filter-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
-
 .filter-btn {
     background-color: #ffffff;
     border: 2px solid var(--primary-color);
@@ -54,20 +48,17 @@
     cursor: pointer;
     transition: all 0.2s ease;
 }
-
 .filter-btn:hover, .filter-btn.active {
     background-color: var(--primary-color);
     color: #ffffff;
 }
 
-/* Grid de Ejercicios */
 .exercise-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
     align-items: start;
 }
-/* Tarjetas individuales de ejercicio */
 .ex-card {
     background: #ffffff;
     border-radius: 8px;
@@ -75,7 +66,6 @@
     border-left: 5px solid var(--primary-color);
     overflow: hidden;
 }
-
 .ex-header {
     padding: 18px 20px;
     display: flex;
@@ -84,12 +74,10 @@
     cursor: pointer;
     background-color: #fafafa;
 }
-
 .ex-title h3 {
     color: var(--primary-color);
     font-size: 1.2rem;
 }
-
 .ex-badge {
     display: inline-block;
     font-size: 0.75rem;
@@ -100,34 +88,31 @@
     font-weight: bold;
     margin-top: 4px;
 }
-
 .toggle-icon {
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--primary-color);
 }
 
-/* Contenido colapsable (Acordeón) */
+
 .ex-body {
     display: none;
     padding: 20px;
     border-top: 1px solid #eee;
 }
-
 .ex-body.open {
     display: block;
 }
-
 .ex-body p {
     color: #444;
     line-height: 1.5;
     margin-bottom: 10px;
 }
-
 .ex-body ul {
     padding-left: 20px;
     color: #555;
 }
+
 
 @media (min-width: 768px) {
     .exercise-grid {
