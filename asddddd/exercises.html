@@ -22,6 +22,21 @@
             <a href="#" class="main-a">Feedback</a>
         </nav>
     </header>
+    <main class="exercises-container">
+        <section class="filter-section">
+            <h1>Exercise Library</h1>
+            <p>Filter movements by targeted muscle group:</p>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Exercises</button>
+                <button class="filter-btn" data-filter="upper">Upper Body</button>
+                <button class="filter-btn" data-filter="arms">Arms</button>
+                <button class="filter-btn" data-filter="lower">Lower Body</button>
+            </div>
+        </section>
+
+        <!-- Aquí JavaScript insertará las tarjetas automáticamente -->
+        <section id="exercise-grid" class="exercise-grid"></section>
+    </main>
 
 
 
