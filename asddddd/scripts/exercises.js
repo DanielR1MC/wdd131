@@ -476,11 +476,18 @@ function displayExercises(items) {
         const card = document.createElement("article");
         card.className = "ex-card";
         
+        // 1. Declaras la variable aquí dentro
+        const diffClass = ex.difficulty.toLowerCase(); 
+
+        // 2. Sustituyes el innerHTML por este con las nuevas etiquetas
         card.innerHTML = `
             <div class="ex-header">
                 <div class="ex-title">
                     <h3>${ex.name}</h3>
-                    <span class="ex-badge">${ex.muscle} • ${ex.difficulty}</span>
+                    <div class="badge-group">
+                        <span class="ex-badge">${ex.muscle}</span>
+                        <span class="difficulty-badge ${diffClass}">${ex.difficulty}</span>
+                    </div>
                 </div>
                 <span class="toggle-icon">+</span>
             </div>
