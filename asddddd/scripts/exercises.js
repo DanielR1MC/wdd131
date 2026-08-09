@@ -4,7 +4,47 @@ document.getElementById("currentyear").textContent = currentYear;
 document.getElementById("lastModified").innerHTML = document.lastModified;
 
 
+// Variables para guardar los 2 filtros activos
+let activeCategory = "all";
+let activeEquipment = "all";
 
+function applyFilters() {
+    const filtered = exercises.filter(ex => {
+        const matchesCategory = (activeCategory === "all") || (ex.category === activeCategory);
+        const matchesEquipment = (activeEquipment === "all") || (ex.equipment === activeEquipment);
+        
+        // Debe cumplir AMBOS filtros
+        return matchesCategory && matchesEquipment;
+    });
+
+    displayExercises(filtered);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    displayExercises(exercises);
+
+    // Eventos para la fila 1: Categoria
+    const categoryBtns = document.querySelectorAll("[data-category]");
+    categoryBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            categoryBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            activeCategory = btn.getAttribute("data-category");
+            applyFilters();
+        });
+    });
+
+    // Eventos para la fila 2: Equipamiento
+    const equipmentBtns = document.querySelectorAll("[data-equipment]");
+    equipmentBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            equipmentBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            activeEquipment = btn.getAttribute("data-equipment");
+            applyFilters();
+        });
+    });
+});
 
 const exercises = [
     {

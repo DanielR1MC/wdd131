@@ -25,12 +25,22 @@
     <main class="exercises-container">
         <section class="filter-section">
             <h1>Exercise Library</h1>
-            <p>Filter movements by targeted muscle group:</p>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All Exercises</button>
-                <button class="filter-btn" data-filter="upper">Upper Body</button>
-                <button class="filter-btn" data-filter="arms">Arms</button>
-                <button class="filter-btn" data-filter="lower">Lower Body</button>
+            <p>Filter movements by targeted muscle group and equipment:</p>
+    
+    <!-- Fila 1: Filtro por Musculo/Categoria -->
+            <div class="filter-group category-group">
+                <button class="filter-btn active" data-category="all">All Exercises</button>
+                <button class="filter-btn" data-category="upper">Upper Body</button>
+                <button class="filter-btn" data-category="arms">Arms</button>
+                <button class="filter-btn" data-category="lower">Lower Body</button>
+            </div>
+
+    <!-- Fila 2: Filtro por Equipamiento -->
+                <div class="filter-group equipment-group">
+                <button class="filter-btn active" data-equipment="all">All Equipment</button>
+                <button class="filter-btn" data-equipment="barbell">Barbell</button>
+                <button class="filter-btn" data-equipment="dumbbell">Dumbbell</button>
+                <button class="filter-btn" data-equipment="machine">Machine</button>
             </div>
         </section>
 
