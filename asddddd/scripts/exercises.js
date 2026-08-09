@@ -1,56 +1,14 @@
 const currentYear = new Date().getFullYear();
 document.getElementById("currentyear").textContent = currentYear;
-
 document.getElementById("lastModified").innerHTML = document.lastModified;
 
-
-// Variables para guardar los 2 filtros activos
-let activeCategory = "all";
-let activeEquipment = "all";
-
-function applyFilters() {
-    const filtered = exercises.filter(ex => {
-        const matchesCategory = (activeCategory === "all") || (ex.category === activeCategory);
-        const matchesEquipment = (activeEquipment === "all") || (ex.equipment === activeEquipment);
-        
-        // Debe cumplir AMBOS filtros
-        return matchesCategory && matchesEquipment;
-    });
-
-    displayExercises(filtered);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    displayExercises(exercises);
-
-    // Eventos para la fila 1: Categoria
-    const categoryBtns = document.querySelectorAll("[data-category]");
-    categoryBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            categoryBtns.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            activeCategory = btn.getAttribute("data-category");
-            applyFilters();
-        });
-    });
-
-    // Eventos para la fila 2: Equipamiento
-    const equipmentBtns = document.querySelectorAll("[data-equipment]");
-    equipmentBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            equipmentBtns.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            activeEquipment = btn.getAttribute("data-equipment");
-            applyFilters();
-        });
-    });
-});
-
+// Array de ejercicios con la propiedad 'equipment' agregada
 const exercises = [
     {
         id: 1,
         name: "Bench Press",
         category: "upper",
+        equipment: "barbell",
         muscle: "Chest / Pectorals",
         difficulty: "Intermediate",
         description: "A fundamental compound movement for building chest, shoulder, and tricep strength.",
@@ -60,6 +18,7 @@ const exercises = [
         id: 2,
         name: "Lat Pulldown",
         category: "upper",
+        equipment: "machine",
         muscle: "Back / Latissimus Dorsi",
         difficulty: "Beginner",
         description: "Focuses on developing back width and upper body pulling strength.",
@@ -69,6 +28,7 @@ const exercises = [
         id: 3,
         name: "Dumbbell Bicep Curl",
         category: "arms",
+        equipment: "dumbbell",
         muscle: "Biceps",
         difficulty: "Beginner",
         description: "Classic isolation exercise to build biceps size and arm peak.",
@@ -78,6 +38,7 @@ const exercises = [
         id: 4,
         name: "Barbell Squat",
         category: "lower",
+        equipment: "barbell",
         muscle: "Quadriceps & Glutes",
         difficulty: "Advanced",
         description: "The primary compound movement for lower body mass and strength.",
@@ -85,10 +46,19 @@ const exercises = [
     }
 ];
 
-// Función para renderizar las tarjetas en la página
+// Variables globales para guardar los filtros seleccionados
+let activeCategory = "all";
+let activeEquipment = "all";
+
+// Función para renderizar tarjetas en el DOM
 function displayExercises(items) {
     const grid = document.getElementById("exercise-grid");
     grid.innerHTML = "";
+
+    if (items.length === 0) {
+        grid.innerHTML = "<p style='grid-column: 1/-1; text-align: center; color: #666;'>No exercises match the selected combination.</p>";
+        return;
+    }
 
     items.forEach(ex => {
         const card = document.createElement("article");
@@ -111,7 +81,7 @@ function displayExercises(items) {
             </div>
         `;
 
-        // Evento para abrir/cerrar acordeón
+        // Evento para abrir/cerrar el acordeón
         const header = card.querySelector(".ex-header");
         const body = card.querySelector(".ex-body");
         const icon = card.querySelector(".toggle-icon");
@@ -125,23 +95,40 @@ function displayExercises(items) {
     });
 }
 
-// Inicialización y manejo de Filtros
+// Aplicar combinación de ambos filtros
+function applyFilters() {
+    const filtered = exercises.filter(ex => {
+        const matchesCategory = (activeCategory === "all") || (ex.category === activeCategory);
+        const matchesEquipment = (activeEquipment === "all") || (ex.equipment === activeEquipment);
+        return matchesCategory && matchesEquipment;
+    });
+
+    displayExercises(filtered);
+}
+
+// Inicializar la interacción
 document.addEventListener("DOMContentLoaded", () => {
     displayExercises(exercises);
 
-    const filterBtns = document.querySelectorAll(".filter-btn");
-    filterBtns.forEach(btn => {
+    // Manejador Fila 1: Categorías
+    const categoryBtns = document.querySelectorAll("[data-category]");
+    categoryBtns.forEach(btn => {
         btn.addEventListener("click", () => {
-            filterBtns.forEach(b => b.classList.remove("active"));
+            categoryBtns.forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
+            activeCategory = btn.getAttribute("data-category");
+            applyFilters();
+        });
+    });
 
-            const filter = btn.getAttribute("data-filter");
-            if (filter === "all") {
-                displayExercises(exercises);
-            } else {
-                const filtered = exercises.filter(e => e.category === filter);
-                displayExercises(filtered);
-            }
+    // Manejador Fila 2: Equipamiento
+    const equipmentBtns = document.querySelectorAll("[data-equipment]");
+    equipmentBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            equipmentBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            activeEquipment = btn.getAttribute("data-equipment");
+            applyFilters();
         });
     });
 });
