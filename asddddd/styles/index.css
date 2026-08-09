@@ -6,7 +6,6 @@
     flex-direction: column;
     gap: 35px;
 }
-
 .hero-banner {
     position: relative;
     margin-top: 25px;
@@ -14,14 +13,12 @@
     overflow: hidden;
     text-align: center;
 }
-
 .hero-img {
     width: 100%;
     height: 285px;
     object-fit: cover;
     display: block;
 }
-
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -36,13 +33,11 @@
     justify-content: center;
     align-items: center;
 }
-
 .hero-overlay h1 {
     font-size: 2.2rem;
     margin-bottom: 12px;
     color: #ffffff;
 }
-
 .hero-overlay p {
     font-size: 1.1rem;
     max-width: 650px;
@@ -74,9 +69,7 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     border-bottom: 4px solid var(--secondary-color);
 }
-
 .s-item {text-align: center;}
-
 .s-num {
     display: block;
     font-size: 1.8rem;
@@ -146,10 +139,8 @@
     font-weight: 500;
     transition: background-color 0.2s;
 }
+.card-btn:hover {background-color: #1e3e33;}
 
-.card-btn:hover {
-    background-color: #1e3e33;
-}
 .card-media {
     height: 110px;
     display: flex;
@@ -163,21 +154,11 @@
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
-.upper-i {
-    background: linear-gradient(135deg, var(--primary-color), #1e3e33);
-}
+.upper-i {background: linear-gradient(135deg, var(--primary-color), #1e3e33);}
+.arms-i {background: linear-gradient(135deg, var(--secondary-color), #7a8e60);}
+.lower-i {background: linear-gradient(135deg, #1e3e33, var(--secondary-color));}
 
-.arms-i {
-    background: linear-gradient(135deg, var(--secondary-color), #7a8e60);
-}
-
-.lower-i {
-    background: linear-gradient(135deg, #1e3e33, var(--secondary-color));
-}
-
-.card-content {
-    padding: 20px;
-}
+.card-content {padding: 20px;}
 
 @media (min-width: 768px) {
     .card-grid {
