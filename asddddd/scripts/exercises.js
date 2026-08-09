@@ -2,19 +2,6 @@ const currentYear = new Date().getFullYear();
 document.getElementById("currentyear").textContent = currentYear;
 document.getElementById("lastModified").innerHTML = document.lastModified;
 
-const searchInput = document.getElementById("searchInput");
-
-function applyFilters() {
-    const query = searchInput.value.toLowerCase();
-    const filtered = exercises.filter(ex => {
-        const matchesCategory = (activeCategory === "all") || (ex.category === activeCategory);
-        const matchesEquipment = (activeEquipment === "all") || (ex.equipment === activeEquipment);
-        const matchesSearch = ex.name.toLowerCase().includes(query) || ex.muscle.toLowerCase().includes(query);
-        return matchesCategory && matchesEquipment && matchesSearch;
-    });
-
-    displayExercises(filtered);
-}
 
 searchInput.addEventListener("input", applyFilters);
 
@@ -476,10 +463,8 @@ function displayExercises(items) {
         const card = document.createElement("article");
         card.className = "ex-card";
         
-        // 1. Declaras la variable aquí dentro
         const diffClass = ex.difficulty.toLowerCase(); 
 
-        // 2. Sustituyes el innerHTML por este con las nuevas etiquetas
         card.innerHTML = `
             <div class="ex-header">
                 <div class="ex-title">
@@ -546,4 +531,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-

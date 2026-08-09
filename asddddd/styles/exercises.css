@@ -97,7 +97,7 @@
     color: #000;
     border-radius: 4px;
     font-weight: bold;
-    margin-top: 4px;
+    margin-top: 0;
 }
 .toggle-icon {
     font-size: 1.2rem;
@@ -140,6 +140,32 @@
 
 #searchInput:focus {
     border-color: var(--primary-color);
+}
+
+.badge-group {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.difficulty-badge {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.difficulty-badge.beginner {
+    background-color: #2e7d32; /* Verde */
+}
+
+.difficulty-badge.intermediate {
+    background-color: #ed6c02; /* Naranja */
+}
+
+.difficulty-badge.advanced {
+    background-color: #d32f2f; /* Rojo */
 }
 @media (min-width: 768px) {
     .exercise-grid {
