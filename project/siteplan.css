@@ -1,3 +1,10 @@
+:root {
+    --primary-color: #2B5748;
+    --secondary-color: #9CB080;
+    --accent-color: #FFFF00;
+    --text-color: #000000;
+    --text-color2: #fff ; 
+}
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
@@ -32,12 +39,18 @@ h1, h2, h3 {
     text-align: center;
     flex: 1;
 }
-.onee{ background-color: #1a252c;}
-.twow{ background-color: #2ecc71;}
-.threee{
-    background-color: #f4f6f8;
-    color: #333; 
-    border: 1px solid #ccc
+.onee {
+    background-color: var(--primary-color);
+    color: var(--text-color2);
+}
+.twow {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+.threee {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: 1px solid #ccc;
 }
 .wireframe-container {
     display: flex;
