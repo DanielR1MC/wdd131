@@ -5,437 +5,446 @@ document.getElementById("lastModified").innerHTML = document.lastModified;
 
 const exercises = [
     // ================= UPPER BODY (1 - 10) =================
+    // Los Reyes Compuestos
     {
         id: 1,
-        name: "Bench Press",
+        name: "Barbell Bench Press",
         category: "upper",
         equipment: "barbell",
         muscle: "Chest / Pectorals",
         difficulty: "Intermediate",
-        description: "A fundamental compound movement for building chest, shoulder, and tricep strength.",
+        description: "The absolute king of chest exercises for overall upper body pushing strength and mass.",
         steps: [
-            "Lie flat on the bench with feet firm on the floor.",
+            "Lie flat on the bench, feet planted firmly.",
             "Grip the bar slightly wider than shoulder-width.",
-            "Lower the bar controlled to mid-chest level.",
-            "Press up explosively until arms are extended."
+            "Lower the bar under control to your mid-chest.",
+            "Press the weight up explosively to full extension."
         ]
     },
     {
         id: 2,
-        name: "Incline Dumbbell Press",
+        name: "Barbell Bent-Over Row",
         category: "upper",
-        equipment: "dumbbell",
-        muscle: "Upper Chest",
-        difficulty: "Intermediate",
-        description: "Targets upper chest fibers while offering a full range of motion.",
+        equipment: "barbell",
+        muscle: "Back / Lats & Rhomboids",
+        difficulty: "Advanced",
+        description: "Fundamental heavy pulling movement for a thick and wide back.",
         steps: [
-            "Set bench to a 30-45 degree angle.",
-            "Hold dumbbells at shoulder level with palms facing forward.",
-            "Press weights straight up until arms extend overhead.",
-            "Lower dumbbells back slowly to starting position."
+            "Hinge at the hips, keeping your back straight and nearly parallel to the floor.",
+            "Grip the barbell with an overhand or underhand grip.",
+            "Pull the bar into your belly button, squeezing your shoulder blades.",
+            "Lower the weight under control."
         ]
     },
     {
         id: 3,
+        name: "Overhead Barbell Press",
+        category: "upper",
+        equipment: "barbell",
+        muscle: "Shoulders / Front Delts",
+        difficulty: "Advanced",
+        description: "The ultimate test of upper body vertical pushing strength.",
+        steps: [
+            "Unrack the bar across your front delts / clavicle.",
+            "Brace your core and squeeze your glutes.",
+            "Press the bar straight overhead until elbows lock out.",
+            "Lower the bar back to your chest under control."
+        ]
+    },
+    {
+        id: 4,
         name: "Lat Pulldown",
         category: "upper",
         equipment: "machine",
         muscle: "Back / Latissimus Dorsi",
         difficulty: "Beginner",
-        description: "Focuses on developing back width and upper body pulling strength.",
+        description: "The premier machine exercise for building back width.",
         steps: [
-            "Adjust seat pad to secure thighs firmly.",
-            "Grip the bar with hands wider than shoulders.",
-            "Pull the bar down towards upper chest while squeezing shoulder blades.",
-            "Control the weight smoothly back to top position."
+            "Sit at the machine and adjust the knee pad.",
+            "Take a wide overhand grip on the bar.",
+            "Pull the bar down to your upper chest, depressing your shoulders.",
+            "Let the bar stretch your lats on the way back up."
         ]
     },
-    {
-        id: 4,
-        name: "Overhead Barbell Press",
-        category: "upper",
-        equipment: "barbell",
-        muscle: "Shoulders / Deltoids",
-        difficulty: "Advanced",
-        description: "Core shoulder exercise for overhead strength and upper body stability.",
-        steps: [
-            "Rack barbell at upper chest height and grip shoulder-width apart.",
-            "Unrack and press the bar overhead, locking out at top.",
-            "Keep core tight and lower bar back to collarbone level."
-        ]
-    },
+    // Variaciones y Accesorios
     {
         id: 5,
-        name: "Chest Fly Machine (Pec Deck)",
+        name: "Incline Dumbbell Press",
         category: "upper",
-        equipment: "machine",
-        muscle: "Chest / Pectorals",
-        difficulty: "Beginner",
-        description: "Isolates chest muscles with constant tension throughout the arc.",
+        equipment: "dumbbell",
+        muscle: "Upper Chest",
+        difficulty: "Intermediate",
+        description: "Targets the upper pectoral fibers with a deep stretch and independent arm movement.",
         steps: [
-            "Adjust seat height so handles are aligned with chest.",
-            "Grip handles and bring pads together in front of chest.",
-            "Squeeze chest at peak contraction, then slowly open arms."
+            "Set an adjustable bench to 30-45 degrees.",
+            "Kick the dumbbells up to your shoulders.",
+            "Press the dumbbells up and slightly inward.",
+            "Lower them wide to stretch the chest."
         ]
     },
     {
         id: 6,
-        name: "Dumbbell Bent-Over Row",
+        name: "Seated Cable Row",
         category: "upper",
-        equipment: "dumbbell",
-        muscle: "Middle Back / Rhomboids",
-        difficulty: "Intermediate",
-        description: "Builds back thickness and improves shoulder posture.",
+        equipment: "machine",
+        muscle: "Middle Back",
+        difficulty: "Beginner",
+        description: "Excellent constant-tension horizontal pull for back thickness.",
         steps: [
-            "Hinge at hips with torso near parallel to floor.",
-            "Hold dumbbells with arms hanging extended.",
-            "Pull weights toward waist squeezing shoulder blades.",
-            "Lower dumbbells under control."
+            "Sit on the machine with feet on the platforms and knees slightly bent.",
+            "Keep your torso upright and pull the V-handle to your stomach.",
+            "Squeeze your back hard at the peak contraction.",
+            "Extend your arms fully to stretch."
         ]
     },
     {
         id: 7,
-        name: "Barbell Bent-Over Row",
-        category: "upper",
-        equipment: "barbell",
-        muscle: "Upper & Middle Back",
-        difficulty: "Intermediate",
-        description: "Heavy back builder targeting lats, traps, and posterior shoulders.",
-        steps: [
-            "Hinge forward at hips keeping spine neutral.",
-            "Grip bar slightly wider than shoulder width.",
-            "Pull bar to lower sternum/belly button.",
-            "Lower bar under control."
-        ]
-    },
-    {
-        id: 8,
-        name: "Dumbbell Shoulder Press",
-        category: "upper",
-        equipment: "dumbbell",
-        muscle: "Shoulders / Deltoids",
-        difficulty: "Beginner",
-        description: "Develops shoulder mass and stability with independent arm movement.",
-        steps: [
-            "Sit or stand holding dumbbells at shoulder height.",
-            "Press weights straight overhead without arching back.",
-            "Lower weights smoothly back to ear height."
-        ]
-    },
-    {
-        id: 9,
-        name: "Seated Cable Row",
-        category: "upper",
-        equipment: "machine",
-        muscle: "Lats & Middle Back",
-        difficulty: "Beginner",
-        description: "Machine row variation providing constant resistance for back development.",
-        steps: [
-            "Sit with knees slightly bent and grip handle attachment.",
-            "Pull handle toward torso while driving elbows backward.",
-            "Squeeze back muscles and return smoothly."
-        ]
-    },
-    {
-        id: 10,
         name: "Dumbbell Lateral Raise",
         category: "upper",
         equipment: "dumbbell",
         muscle: "Side Deltoids",
         difficulty: "Beginner",
-        description: "Key isolation exercise for building shoulder width and side delts.",
+        description: "The undisputed best movement for building wide, capped shoulders.",
         steps: [
-            "Stand with dumbbells at sides, slight bend in elbows.",
-            "Raise arms out to sides until parallel to floor.",
-            "Pause briefly at peak and lower with control."
+            "Stand holding dumbbells at your sides with a slight bend in the elbows.",
+            "Raise your arms straight out to the sides until parallel with the floor.",
+            "Control the eccentric on the way down."
+        ]
+    },
+    {
+        id: 8,
+        name: "Pec Deck Fly",
+        category: "upper",
+        equipment: "machine",
+        muscle: "Chest / Pectorals",
+        difficulty: "Beginner",
+        description: "Isolates the chest muscles with a great stretch and peak contraction.",
+        steps: [
+            "Sit with your back flat against the pad.",
+            "Grip the handles and bring your arms together in front of you.",
+            "Squeeze your chest for a second at the center.",
+            "Slowly open your arms to feel the stretch."
+        ]
+    },
+    {
+        id: 9,
+        name: "Single-Arm Dumbbell Row",
+        category: "upper",
+        equipment: "dumbbell",
+        muscle: "Back / Lats",
+        difficulty: "Intermediate",
+        description: "Unilateral pulling movement to fix imbalances and build the lats.",
+        steps: [
+            "Place one knee and hand on a flat bench.",
+            "Hold a dumbbell in the free hand and let it hang.",
+            "Row the dumbbell up toward your hip, keeping the elbow tucked.",
+            "Lower slowly until you feel a lat stretch."
+        ]
+    },
+    {
+        id: 10,
+        name: "Machine Shoulder Press",
+        category: "upper",
+        equipment: "machine",
+        muscle: "Shoulders",
+        difficulty: "Beginner",
+        description: "Safe and stable way to overload the front delts without worrying about balance.",
+        steps: [
+            "Adjust the seat so the handles are at shoulder level.",
+            "Grip the handles and press straight up.",
+            "Control the weight back down without letting the plates crash."
         ]
     },
 
     // ================= ARMS (11 - 20) =================
+    // Bíceps
     {
         id: 11,
-        name: "Dumbbell Bicep Curl",
+        name: "Barbell Bicep Curl",
         category: "arms",
-        equipment: "dumbbell",
-        muscle: "Biceps Brachii",
-        difficulty: "Beginner",
-        description: "Classic isolation exercise to build bicep peak and arm strength.",
+        equipment: "barbell",
+        muscle: "Biceps",
+        difficulty: "Intermediate",
+        description: "The classic mass builder for overall bicep size.",
         steps: [
-            "Stand upright holding dumbbells at sides, palms forward.",
-            "Keep elbows locked close to torso.",
-            "Curl weights up towards shoulders.",
-            "Lower smoothly back to start position."
+            "Stand holding a barbell with an underhand grip.",
+            "Keep your chest up and elbows pinned to your sides.",
+            "Curl the weight up, squeezing the biceps.",
+            "Lower the bar under control."
         ]
     },
     {
         id: 12,
-        name: "Tricep Cable Pushdown",
+        name: "Incline Dumbbell Curl",
         category: "arms",
-        equipment: "machine",
-        muscle: "Triceps",
-        difficulty: "Beginner",
-        description: "Cable movement targeting full tricep lockout and muscle control.",
+        equipment: "dumbbell",
+        muscle: "Biceps (Long Head)",
+        difficulty: "Intermediate",
+        description: "Places the biceps in a deep stretch behind the torso for maximum muscle breakdown.",
         steps: [
-            "Attach bar or rope to high cable pulley.",
-            "Keep elbows fixed close to body.",
-            "Push handle down until arms are fully extended.",
-            "Return to 90-degree bend with control."
+            "Sit on an incline bench (45-60 degrees) with dumbbells hanging straight down.",
+            "Keep your upper arms stationary and curl the weights.",
+            "Squeeze at the top and lower to a dead hang."
         ]
     },
     {
         id: 13,
-        name: "Barbell Preacher Curl",
+        name: "Machine Preacher Curl",
         category: "arms",
-        equipment: "barbell",
-        muscle: "Biceps",
-        difficulty: "Intermediate",
-        description: "Isolates biceps by locking shoulders against preacher pad.",
+        equipment: "machine",
+        muscle: "Biceps (Short Head)",
+        difficulty: "Beginner",
+        description: "Strict isolation exercise preventing cheating by locking the arms in place.",
         steps: [
-            "Rest upper arms flat on preacher bench pad.",
-            "Grip EZ-bar or straight bar with underhand grip.",
-            "Curl bar upward toward chin level.",
-            "Lower weight back down under complete control."
+            "Sit down and lock your armpits over the preacher pad.",
+            "Grab the machine handles and curl towards your face.",
+            "Lower slowly until arms are almost fully extended."
         ]
     },
     {
         id: 14,
-        name: "Hammer Curls",
+        name: "Dumbbell Hammer Curl",
         category: "arms",
         equipment: "dumbbell",
-        muscle: "Forearms & Brachialis",
+        muscle: "Brachialis & Forearms",
         difficulty: "Beginner",
-        description: "Neutral-grip curl targeting brachialis and forearm thickness.",
+        description: "Uses a neutral grip to target the brachialis, pushing the bicep up for a bigger peak.",
         steps: [
             "Hold dumbbells with palms facing each other.",
-            "Keep upper arms still and curl weights upward.",
-            "Pause at peak and lower under control."
+            "Curl the weights keeping the neutral grip.",
+            "Squeeze at the top and lower under control."
         ]
     },
     {
         id: 15,
-        name: "Skull Crushers (Lying Triceps Extension)",
+        name: "Cable Rope Curl",
         category: "arms",
-        equipment: "barbell",
-        muscle: "Triceps (Long Head)",
-        difficulty: "Intermediate",
-        description: "Effective lying movement for developing tricep mass.",
+        equipment: "machine",
+        muscle: "Biceps",
+        difficulty: "Beginner",
+        description: "Provides constant tension throughout the entire range of motion.",
         steps: [
-            "Lie on flat bench holding EZ-bar above chest.",
-            "Bend elbows to lower bar toward forehead.",
-            "Extend elbows to press weight back up."
+            "Attach a rope to the lowest pulley setting.",
+            "Stand up and curl the rope, twisting your wrists out slightly at the top.",
+            "Lower slowly against the cable resistance."
         ]
     },
+    // Tríceps
     {
         id: 16,
-        name: "Dumbbell Overhead Tricep Extension",
+        name: "Close-Grip Bench Press",
         category: "arms",
-        equipment: "dumbbell",
+        equipment: "barbell",
         muscle: "Triceps",
-        difficulty: "Beginner",
-        description: "Stretches and builds tricep long head from overhead position.",
+        difficulty: "Intermediate",
+        description: "The heaviest compound movement specifically for building tricep mass.",
         steps: [
-            "Hold one dumbbell with both hands overhead.",
-            "Lower dumbbell behind head by bending elbows.",
-            "Extend arms straight back up to start."
+            "Lie on the bench and take a grip slightly narrower than shoulder-width.",
+            "Lower the bar to your lower chest, keeping elbows tucked close to your ribs.",
+            "Press the bar up powerfully using your triceps."
         ]
     },
     {
         id: 17,
-        name: "Machine Bicep Curl",
+        name: "EZ-Bar Skull Crushers",
         category: "arms",
-        equipment: "machine",
-        muscle: "Biceps",
-        difficulty: "Beginner",
-        description: "Guided bicep isolation with consistent resistance curve.",
+        equipment: "barbell",
+        muscle: "Triceps",
+        difficulty: "Intermediate",
+        description: "Essential isolation movement for overall tricep thickness.",
         steps: [
-            "Adjust seat height so arms rest comfortably on pads.",
-            "Grip handles and curl upward towards face.",
-            "Slowly extend arms back down."
+            "Lie on a flat bench holding an EZ-bar over your forehead.",
+            "Bend at the elbows to lower the weight slightly behind your head.",
+            "Extend the arms back to the starting position."
         ]
     },
     {
         id: 18,
-        name: "Barbell Standing Curl",
+        name: "Cable Tricep Pushdown",
         category: "arms",
-        equipment: "barbell",
-        muscle: "Biceps",
-        difficulty: "Intermediate",
-        description: "Primary overload exercise for overall bicep size.",
+        equipment: "machine",
+        muscle: "Triceps",
+        difficulty: "Beginner",
+        description: "The most common and effective tricep isolation exercise.",
         steps: [
-            "Stand holding barbell with underhand grip.",
-            "Keep core tight and curl bar toward chest.",
-            "Lower bar down slowly without swinging body."
+            "Attach a rope or straight bar to a high pulley.",
+            "Pin your elbows to your sides.",
+            "Push the weight down until your arms are fully locked out.",
+            "Control the eccentric phase on the way up."
         ]
     },
     {
         id: 19,
-        name: "Concentration Curl",
+        name: "Overhead Dumbbell Tricep Extension",
         category: "arms",
         equipment: "dumbbell",
-        muscle: "Biceps (Peak)",
-        difficulty: "Intermediate",
-        description: "Strict isolation exercise focusing on bicep peak.",
+        muscle: "Triceps (Long Head)",
+        difficulty: "Beginner",
+        description: "Targets the long head of the tricep by putting it in a fully stretched overhead position.",
         steps: [
-            "Sit on bench, elbow braced against inner thigh.",
-            "Curl dumbbell toward chest.",
-            "Squeeze at top and lower weight slowly."
+            "Hold a single heavy dumbbell with both hands overhead.",
+            "Lower the weight behind your head by bending the elbows.",
+            "Press it back up to full extension."
         ]
     },
     {
         id: 20,
-        name: "Cable Tricep Overhead Extension",
+        name: "Cable Overhead Extension",
         category: "arms",
         equipment: "machine",
-        muscle: "Triceps",
+        muscle: "Triceps (Long Head)",
         difficulty: "Intermediate",
-        description: "Continuous cable tension stretching triceps overhead.",
+        description: "Similar to the dumbbell version but with the constant tension of a cable.",
         steps: [
-            "Attach rope to low/mid cable pulley.",
-            "Turn away from pulley and hold rope behind head.",
-            "Extend arms forward overhead and control back."
+            "Set a pulley at hip height with a rope attachment.",
+            "Face away from the machine and pull the rope overhead.",
+            "Extend your arms straight out, feeling the stretch at the bottom."
         ]
     },
 
     // ================= LOWER BODY (21 - 30) =================
+    // Los Reyes de Piernas
     {
         id: 21,
-        name: "Barbell Squat",
+        name: "Barbell Back Squat",
         category: "lower",
         equipment: "barbell",
-        muscle: "Quadriceps & Glutes",
+        muscle: "Quads & Glutes",
         difficulty: "Advanced",
-        description: "The primary compound movement for overall lower body mass and strength.",
+        description: "The absolute undisputed king of lower body muscle and strength.",
         steps: [
-            "Position bar across upper back muscles.",
-            "Keep feet shoulder-width apart, toes slightly out.",
-            "Bend knees and hips to lower thighs parallel to floor.",
-            "Drive through heels to stand back up."
+            "Rest the barbell on your upper traps.",
+            "Squat down by breaking at the hips and knees simultaneously.",
+            "Hit parallel or lower, keeping your chest up.",
+            "Drive through your mid-foot to stand back up."
         ]
     },
     {
         id: 22,
-        name: "Leg Press",
-        category: "lower",
-        equipment: "machine",
-        muscle: "Quadriceps & Glutes",
-        difficulty: "Beginner",
-        description: "Machine exercise allowing heavy leg training with back support.",
-        steps: [
-            "Sit on machine with feet shoulder-width on platform.",
-            "Release safety lock and lower weight to 90 degrees.",
-            "Press platform back up without locking knees."
-        ]
-    },
-    {
-        id: 23,
-        name: "Dumbbell Goblet Squat",
-        category: "lower",
-        equipment: "dumbbell",
-        muscle: "Quads & Core",
-        difficulty: "Beginner",
-        description: "Great beginner-friendly squat variation for lower body mobility.",
-        steps: [
-            "Hold a single dumbbell vertically against chest.",
-            "Squat deep between knees keeping torso tall.",
-            "Drive through feet to return to standing."
-        ]
-    },
-    {
-        id: 24,
-        name: "Romanian Deadlift",
+        name: "Romanian Deadlift (RDL)",
         category: "lower",
         equipment: "barbell",
         muscle: "Hamstrings & Glutes",
         difficulty: "Intermediate",
-        description: "Hip-hinge movement focused on hamstring flexibility and posterior chain.",
+        description: "The best exercise for building massive hamstrings and posterior chain strength.",
         steps: [
-            "Hold bar at thigh height with soft knees.",
-            "Push hips backward while lowering bar down shins.",
-            "Squeeze glutes to drive hips forward to stand tall."
+            "Hold the bar at hip level with a slight bend in your knees.",
+            "Push your hips back as far as possible, sliding the bar down your legs.",
+            "Feel the deep stretch in your hamstrings, then squeeze glutes to stand."
         ]
     },
     {
-        id: 25,
-        name: "Dumbbell Romanian Deadlift",
-        category: "lower",
-        equipment: "dumbbell",
-        muscle: "Hamstrings & Glutes",
-        difficulty: "Beginner",
-        description: "Accessible hamstring hinge using dumbbells for natural hand placement.",
-        steps: [
-            "Hold dumbbells in front of thighs.",
-            "Hinge hips back and lower weights along legs.",
-            "Engage glutes and pull back up to standing."
-        ]
-    },
-    {
-        id: 26,
-        name: "Leg Extension Machine",
-        category: "lower",
-        equipment: "machine",
-        muscle: "Quadriceps",
-        difficulty: "Beginner",
-        description: "Direct quad isolation movement targeting front thigh muscle definition.",
-        steps: [
-            "Sit on machine with pad against lower shins.",
-            "Extend legs upward until fully straight.",
-            "Pause at peak and lower under control."
-        ]
-    },
-    {
-        id: 27,
-        name: "Lying Leg Curl Machine",
-        category: "lower",
-        equipment: "machine",
-        muscle: "Hamstrings",
-        difficulty: "Beginner",
-        description: "Isolates hamstring flexion for back-of-leg development.",
-        steps: [
-            "Lie face down on machine with pad above ankles.",
-            "Curl legs up toward glutes.",
-            "Lower pad back down smoothly."
-        ]
-    },
-    {
-        id: 28,
-        name: "Dumbbell Walking Lunges",
-        category: "lower",
-        equipment: "dumbbell",
-        muscle: "Quads, Glutes & Balance",
-        difficulty: "Intermediate",
-        description: "Unilateral movement improving leg strength and hip stability.",
-        steps: [
-            "Hold dumbbells at sides and step forward.",
-            "Lower back knee toward floor into lunge position.",
-            "Push up and step forward into next lunge."
-        ]
-    },
-    {
-        id: 29,
+        id: 23,
         name: "Barbell Hip Thrust",
         category: "lower",
         equipment: "barbell",
         muscle: "Glutes",
         difficulty: "Intermediate",
-        description: "Top glute isolation exercise for strength and hip power.",
+        description: "The most effective movement for isolating and building the gluteus maximus.",
         steps: [
-            "Upper back supported against bench, barbell across hips.",
-            "Drive hips upward until torso and thighs form straight line.",
-            "Squeeze glutes at top and lower under control."
+            "Sit on the floor with your upper back against a bench and a padded barbell over your hips.",
+            "Drive through your heels to thrust the barbell upward.",
+            "Squeeze your glutes hard at the top lockout.",
+            "Lower the hips under control."
+        ]
+    },
+    {
+        id: 24,
+        name: "Leg Press",
+        category: "lower",
+        equipment: "machine",
+        muscle: "Quads & Glutes",
+        difficulty: "Beginner",
+        description: "Allows for maximum heavy loading on the legs without lower back fatigue.",
+        steps: [
+            "Sit in the machine and place your feet shoulder-width apart.",
+            "Unrack the sled and lower it until your knees hit 90 degrees.",
+            "Press the weight back up without fully locking your knees out."
+        ]
+    },
+    // Variaciones y Aislamiento
+    {
+        id: 25,
+        name: "Bulgarian Split Squat",
+        category: "lower",
+        equipment: "dumbbell",
+        muscle: "Quads & Glutes",
+        difficulty: "Advanced",
+        description: "Brutal unilateral exercise that fixes leg imbalances and builds massive quads.",
+        steps: [
+            "Rest your back foot on a bench and hold dumbbells in your hands.",
+            "Drop your back knee straight down toward the floor.",
+            "Drive through the front heel to return to the starting position."
+        ]
+    },
+    {
+        id: 26,
+        name: "Leg Extension",
+        category: "lower",
+        equipment: "machine",
+        muscle: "Quadriceps",
+        difficulty: "Beginner",
+        description: "The only movement that truly isolates the rectus femoris muscle of the quad.",
+        steps: [
+            "Sit at the machine with the pad resting just above your ankles.",
+            "Extend your legs fully to kick the weight up.",
+            "Hold the squeeze for a second, then lower slowly."
+        ]
+    },
+    {
+        id: 27,
+        name: "Seated Leg Curl",
+        category: "lower",
+        equipment: "machine",
+        muscle: "Hamstrings",
+        difficulty: "Beginner",
+        description: "Isolates the hamstrings in a stretched position for optimal muscle growth.",
+        steps: [
+            "Sit in the machine and secure the thigh pad tight.",
+            "Curl your legs back as far as possible.",
+            "Control the weight on the way up to maintain tension."
+        ]
+    },
+    {
+        id: 28,
+        name: "Dumbbell Goblet Squat",
+        category: "lower",
+        equipment: "dumbbell",
+        muscle: "Quads & Core",
+        difficulty: "Beginner",
+        description: "Excellent alternative to barbell squats that naturally enforces good posture.",
+        steps: [
+            "Hold a single heavy dumbbell vertically against your chest.",
+            "Squat straight down, keeping your torso very upright.",
+            "Drive back up using your quads."
+        ]
+    },
+    {
+        id: 29,
+        name: "Hack Squat",
+        category: "lower",
+        equipment: "machine",
+        muscle: "Quadriceps",
+        difficulty: "Intermediate",
+        description: "Machine squat variation that provides back support for ultimate quad targeting.",
+        steps: [
+            "Step into the machine with your back flat against the pad.",
+            "Squat down as deep as your mobility allows.",
+            "Press back up aggressively through the entire foot."
         ]
     },
     {
         id: 30,
-        name: "Seated Calf Raise",
+        name: "Standing Calf Raise",
         category: "lower",
         equipment: "machine",
-        muscle: "Calves / Soleus",
+        muscle: "Calves / Gastrocnemius",
         difficulty: "Beginner",
-        description: "Targets lower leg development and calf endurance.",
+        description: "The absolute necessity for growing stubborn calf muscles.",
         steps: [
-            "Sit on machine with pad secured on lower thighs.",
-            "Lower heels down fully to stretch calves.",
-            "Push up on toes as high as possible."
+            "Stand with the balls of your feet on the edge of the platform.",
+            "Lower your heels down to get a deep stretch.",
+            "Drive up onto your toes, squeezing the calves hard at the top."
         ]
     }
 ];
