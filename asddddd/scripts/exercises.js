@@ -2,6 +2,21 @@ const currentYear = new Date().getFullYear();
 document.getElementById("currentyear").textContent = currentYear;
 document.getElementById("lastModified").innerHTML = document.lastModified;
 
+const searchInput = document.getElementById("searchInput");
+
+function applyFilters() {
+    const query = searchInput.value.toLowerCase();
+    const filtered = exercises.filter(ex => {
+        const matchesCategory = (activeCategory === "all") || (ex.category === activeCategory);
+        const matchesEquipment = (activeEquipment === "all") || (ex.equipment === activeEquipment);
+        const matchesSearch = ex.name.toLowerCase().includes(query) || ex.muscle.toLowerCase().includes(query);
+        return matchesCategory && matchesEquipment && matchesSearch;
+    });
+
+    displayExercises(filtered);
+}
+
+searchInput.addEventListener("input", applyFilters);
 
 const exercises = [
     // ================= UPPER BODY (1 - 10) =================
