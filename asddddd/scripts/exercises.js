@@ -5,7 +5,6 @@ document.getElementById("lastModified").innerHTML = document.lastModified;
 
 const exercises = [
     // ================= UPPER BODY (1 - 10) =================
-    // Los Reyes Compuestos
     {
         id: 1,
         name: "Barbell Bench Press",
@@ -66,7 +65,6 @@ const exercises = [
             "Let the bar stretch your lats on the way back up."
         ]
     },
-    // Variaciones y Accesorios
     {
         id: 5,
         name: "Incline Dumbbell Press",
@@ -303,7 +301,6 @@ const exercises = [
     },
 
     // ================= LOWER BODY (21 - 30) =================
-    // Los Reyes de Piernas
     {
         id: 21,
         name: "Barbell Back Squat",
@@ -362,7 +359,6 @@ const exercises = [
             "Press the weight back up without fully locking your knees out."
         ]
     },
-    // Variaciones y Aislamiento
     {
         id: 25,
         name: "Bulgarian Split Squat",
