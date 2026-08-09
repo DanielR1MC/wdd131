@@ -163,15 +163,15 @@
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
-.upper-bg {
+.upper-i {
     background: linear-gradient(135deg, var(--primary-color), #1e3e33);
 }
 
-.arms-bg {
+.arms-i {
     background: linear-gradient(135deg, var(--secondary-color), #7a8e60);
 }
 
-.lower-bg {
+.lower-i {
     background: linear-gradient(135deg, #1e3e33, var(--secondary-color));
 }
 
