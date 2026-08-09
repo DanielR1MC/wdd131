@@ -3,25 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Daniel Reyes - WDD 131 - Dynamic Web Fundamentals - ">
+    <meta name="description" content="FitGuide - Your comprehensive workout and muscle training reference guide.">
     <meta name="author" content="Daniel Reyes">
-    <title>WDD 131 - Dynamic Web Fundamentals - Daniel Reyes</title>
+    <title>FitGuide | Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/project-universal.css">
-    <link rel="stylesheet" href="styles/project1.css">
-    <script src="scripts/project1.js" defer ></script>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="scripts/index.js" defer ></script>
 </head>
 <body>
     <header>
-        <span id="nav-title"> Guia De Entrenamiento </span>
+        <span id="nav-title"> FitGuide - Home Hub </span>
         <nav class="main-n">
             <a href="#" class="main-a">Home</a>
             <a href="#" class="main-a">Exercises</a>
             <a href="#" class="main-a">Feedback</a>
         </nav>
     </header>
+    <main class="home-container">
+    <!-- Hero Banner con Imagen de fondo y CTA -->
+    <section class="hero-banner">
+        <div class="hero-overlay">
+            <h1>Master Your Workouts with FitGuide</h1>
+            <p>Your interactive reference for targeted exercise selection, execution techniques, and muscle training.</p>
+            <a href="exercises.html" class="btn-primary">Explore Exercises</a>
+        </div>
+    </section>
+
+    <!-- Quick Stats Bar -->
+    <section class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-num">15+</span>
+            <span class="stat-desc">Targeted Exercises</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">3</span>
+            <span class="stat-desc">Muscle Categories</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">100%</span>
+            <span class="stat-desc">Free & Interactive</span>
+        </div>
+    </section>
+
+    <!-- Target Categories con Botones -->
+    <section class="categories-section">
+    <h2>Target Muscle Groups</h2>
+    <div class="card-grid">
+        
+        <article class="muscle-card">
+            <div class="card-media upper-bg">
+                <span class="card-icon">🏋️‍♂️</span>
+            </div>
+            <div class="card-content">
+                <h3>Upper Body</h3>
+                <p class="subtitle">Chest, Back & Shoulders</p>
+                <p class="card-text">Build strength and definition in your upper torso with optimal pressing and pulling movements.</p>
+                <a href="exercises.html?cat=upper" class="card-btn">View Upper Body</a>
+            </div>
+        </article>
+
+        <article class="muscle-card">
+            <div class="card-media arms-bg">
+                <span class="card-icon">💪</span>
+            </div>
+            <div class="card-content">
+                <h3>Arms</h3>
+                <p class="subtitle">Biceps, Triceps & Forearms</p>
+                <p class="card-text">Isolate and develop arm muscles using precise angles and dumbbell variations.</p>
+                <a href="exercises.html?cat=arms" class="card-btn">View Arm Routines</a>
+            </div>
+        </article>
+
+        <article class="muscle-card">
+            <div class="card-media lower-bg">
+                <span class="card-icon">🦵</span>
+            </div>
+            <div class="card-content">
+                <h3>Lower Body & Core</h3>
+                <p class="subtitle">Legs, Glutes & Abs</p>
+                <p class="card-text">Strengthen your foundation and core stability with compound lower-body exercises.</p>
+                <a href="exercises.html?cat=lower" class="card-btn">View Lower Body</a>
+            </div>
+        </article>
+
+    </div>
+</section>
+</main>
 
 
 

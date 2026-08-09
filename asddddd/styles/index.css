@@ -1,7 +1,176 @@
-:root {
-    --primary-color: #2B5748;
-    --secondary-color: #9CB080;
-    --accent-color: #FFFF00;
-    --text-color: #000000;
-    --text-color2: #fff ; 
+.home-container {
+    max-width: 1100px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* Hero Banner con fondo e impacto */
+.hero-banner {
+    margin-top: 25px;
+    background: linear-gradient(rgba(43, 87, 72, 0.85), rgba(43, 87, 72, 0.9)), 
+                url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+    border-radius: 12px;
+    color: #ffffff;
+    padding: 60px 30px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.hero-overlay h1 {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.hero-overlay p {
+    font-size: 1.1rem;
+    max-width: 650px;
+    margin: 0 auto 25px auto;
+    opacity: 0.95;
+}
+
+/* Botón Principal */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #000000;
+    padding: 12px 28px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    background-color: #e6e600;
+}
+
+/* Barra de Estadísticas */
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-bottom: 4px solid var(--secondary-color);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-num {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.stat-desc {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Tarjetas de Categorías */
+.categories-section h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.muscle-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    border-top: 5px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.muscle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+}
+
+.muscle-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.muscle-card .subtitle {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+.card-text {
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.card-btn {
+    display: block;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.card-btn:hover {
+    background-color: #1e3e33;
+}
+.card-media {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-icon {
+    font-size: 3rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Banners con degradados usando tus verdes de proyecto */
+.upper-bg {
+    background: linear-gradient(135deg, var(--primary-color), #1e3e33);
+}
+
+.arms-bg {
+    background: linear-gradient(135deg, var(--secondary-color), #7a8e60);
+}
+
+.lower-bg {
+    background: linear-gradient(135deg, #1e3e33, var(--secondary-color));
+}
+
+.card-content {
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
