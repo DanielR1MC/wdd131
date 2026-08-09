@@ -56,7 +56,7 @@ const exercises = [
         name: "Lat Pulldown",
         category: "upper",
         equipment: "machine",
-        muscle: "Back / Latissimus Dorsi",
+        muscle: "Back / Lats",
         difficulty: "Beginner",
         description: "The premier machine exercise for building back width.",
         steps: [
