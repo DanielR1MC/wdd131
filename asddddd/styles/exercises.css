@@ -157,16 +157,105 @@
 }
 
 .difficulty-badge.beginner {
-    background-color: #2e7d32; /* Verde */
+    background-color: #2e7d32;
 }
 
 .difficulty-badge.intermediate {
-    background-color: #ed6c02; /* Naranja */
+    background-color: #ed6c02;
 }
 
 .difficulty-badge.advanced {
-    background-color: #d32f2f; /* Rojo */
+    background-color: #d32f2f;
 }
+
+
+/* ================= BIOMECANICA HERO SECTION ================= */
+.biomechanics-hero {
+    background-image: url('../images/hero-image.jpg'); 
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.biomechanics-overlay {
+    background: rgba(20, 50, 40, 0.90);
+    color: #ffffff;
+    padding: 35px 25px;
+}
+
+.biomechanics-overlay h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.hero-subtitle {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 30px auto;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+/* Layout Horizontal en Filas */
+.bio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 900px; /* Ancho controlado para perfecta lectura */
+    margin: 0 auto;
+}
+
+.bio-card {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.bio-card h3 {
+    font-size: 1.1rem;
+    color: #a3e635; /* Verde lima */
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(163, 230, 53, 0.3);
+    padding-bottom: 6px;
+}
+
+.bio-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    font-size: 0.92rem;
+    color: #e2e8f0;
+}
+
+.bio-card ul li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.bio-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+.bio-card ul li ul {
+    padding-left: 20px;
+    margin-top: 6px;
+}
+
+.bio-card p {
+    font-size: 0.92rem;
+    color: #e2e8f0;
+    line-height: 1.5;
+    margin: 0;
+}
+
 @media (min-width: 768px) {
     .exercise-grid {
         grid-template-columns: repeat(2, 1fr);
