@@ -1,9 +1,9 @@
 const currentYear = new Date().getFullYear();
-document.getElementById("currentyear").textContent = currentYear;
-document.getElementById("lastModified").innerHTML = document.lastModified;
+const currentYearElem = document.getElementById("currentyear");
+const lastModifiedElem = document.getElementById("lastModified");
 
-
-searchInput.addEventListener("input", applyFilters);
+if (currentYearElem) currentYearElem.textContent = currentYear;
+if (lastModifiedElem) lastModifiedElem.innerHTML = document.lastModified;
 
 const exercises = [
     // ================= UPPER BODY (1 - 10) =================
@@ -11,294 +11,371 @@ const exercises = [
         id: 1,
         name: "Barbell Bench Press",
         category: "upper",
+        pattern: "Push",
+        type: "Compound",
         equipment: "barbell",
-        muscle: "Chest / Pectorals",
+        primaryMuscle: "Chest",
+        secondaryMuscles: ["Triceps", "Front Delts"],
+        jointAction: "Horizontal shoulder adduction and elbow extension",
         difficulty: "Intermediate",
-        description: "The absolute king of chest exercises for overall upper body pushing strength and mass.",
+        description: "The fundamental horizontal push exercise for upper body strength and muscle mass.",
         steps: [
-            "Lie flat on the bench, feet planted firmly.",
-            "Grip the bar slightly wider than shoulder-width.",
-            "Lower the bar under control to your mid-chest.",
-            "Press the weight up explosively to full extension."
+            "Lie flat on the bench with your feet planted firmly on the floor.",
+            "Grip the barbell slightly wider than shoulder-width apart.",
+            "Lower the bar under control to the mid-chest level.",
+            "Press the bar explosively upward until your arms are fully extended."
         ]
     },
     {
         id: 2,
         name: "Barbell Bent-Over Row",
         category: "upper",
+        pattern: "Pull",
+        type: "Compound",
         equipment: "barbell",
-        muscle: "Back / Lats & Rhomboids",
+        primaryMuscle: "Lats",
+        secondaryMuscles: ["Traps", "Rhomboids", "Biceps", "Rear Delts"],
+        jointAction: "Shoulder extension/retraction and elbow flexion",
         difficulty: "Advanced",
-        description: "Fundamental heavy pulling movement for a thick and wide back.",
+        description: "A staple horizontal pull exercise to build a thick and wide back.",
         steps: [
-            "Hinge at the hips, keeping your back straight and nearly parallel to the floor.",
+            "Hinge at the hips keeping your back flat and nearly parallel to the floor.",
             "Grip the barbell with an overhand or underhand grip.",
-            "Pull the bar into your belly button, squeezing your shoulder blades.",
-            "Lower the weight under control."
+            "Pull the bar toward your lower abdomen while contracting your shoulder blades.",
+            "Lower the weight back down while maintaining muscle tension."
         ]
     },
     {
         id: 3,
         name: "Overhead Barbell Press",
         category: "upper",
+        pattern: "Push",
+        type: "Compound",
         equipment: "barbell",
-        muscle: "Shoulders / Front Delts",
+        primaryMuscle: "Front Delts",
+        secondaryMuscles: ["Triceps", "Serratus", "Core"],
+        jointAction: "Shoulder flexion/abduction and elbow extension",
         difficulty: "Advanced",
-        description: "The ultimate test of upper body vertical pushing strength.",
+        description: "The ultimate test of vertical pushing strength for the upper body.",
         steps: [
-            "Unrack the bar across your front delts / clavicle.",
-            "Brace your core and squeeze your glutes.",
-            "Press the bar straight overhead until elbows lock out.",
-            "Lower the bar back to your chest under control."
+            "Unrack the barbell at anterior deltoid level.",
+            "Brace your core and glutes to stabilize your spine.",
+            "Press the bar vertically overhead until your elbows lock out.",
+            "Lower the bar under control back to the starting position."
         ]
     },
     {
         id: 4,
         name: "Lat Pulldown",
         category: "upper",
+        pattern: "Pull",
+        type: "Compound",
         equipment: "machine",
-        muscle: "Back / Lats",
+        primaryMuscle: "Lats",
+        secondaryMuscles: ["Biceps", "Rhomboids", "Upper Back"],
+        jointAction: "Shoulder adduction and elbow flexion",
         difficulty: "Beginner",
-        description: "The premier machine exercise for building back width.",
+        description: "The premier vertical pulling exercise for building upper back width.",
         steps: [
-            "Sit at the machine and adjust the knee pad.",
-            "Take a wide overhand grip on the bar.",
-            "Pull the bar down to your upper chest, depressing your shoulders.",
-            "Let the bar stretch your lats on the way back up."
+            "Adjust the thigh pad to secure your legs in the seat.",
+            "Grip the bar with a wide overhand grip.",
+            "Pull the bar down toward your upper chest while depressing your shoulder blades.",
+            "Slowly return the bar to the top for a full lat stretch."
         ]
     },
     {
         id: 5,
         name: "Incline Dumbbell Press",
         category: "upper",
+        pattern: "Push",
+        type: "Compound",
         equipment: "dumbbell",
-        muscle: "Upper Chest",
+        primaryMuscle: "Upper Chest",
+        secondaryMuscles: ["Front Delts", "Triceps"],
+        jointAction: "Incline horizontal shoulder adduction",
         difficulty: "Intermediate",
-        description: "Targets the upper pectoral fibers with a deep stretch and independent arm movement.",
+        description: "Targets upper chest muscle fibers with an extended range of motion.",
         steps: [
-            "Set an adjustable bench to 30-45 degrees.",
-            "Kick the dumbbells up to your shoulders.",
-            "Press the dumbbells up and slightly inward.",
-            "Lower them wide to stretch the chest."
+            "Set an incline bench to 30–45 degrees.",
+            "Bring the dumbbells up to shoulder level.",
+            "Press upward, bringing the weights slightly closer together at the top.",
+            "Lower the dumbbells while flaring elbows slightly to feel a deep chest stretch."
         ]
     },
     {
         id: 6,
         name: "Seated Cable Row",
         category: "upper",
+        pattern: "Pull",
+        type: "Compound",
         equipment: "machine",
-        muscle: "Middle Back",
+        primaryMuscle: "Lats & Rhomboids",
+        secondaryMuscles: ["Mid Traps", "Biceps"],
+        jointAction: "Shoulder extension and scapular retraction",
         difficulty: "Beginner",
-        description: "Excellent constant-tension horizontal pull for back thickness.",
+        description: "Horizontal pulling movement with constant tension, ideal for back density.",
         steps: [
-            "Sit on the machine with feet on the platforms and knees slightly bent.",
-            "Keep your torso upright and pull the V-handle to your stomach.",
-            "Squeeze your back hard at the peak contraction.",
-            "Extend your arms fully to stretch."
+            "Sit with knees slightly bent and keep your torso upright.",
+            "Pull the attachment toward your abdomen.",
+            "Squeeze your shoulder blades together at peak contraction.",
+            "Return to the start position while extending your arms fully."
         ]
     },
     {
         id: 7,
         name: "Dumbbell Lateral Raise",
         category: "upper",
+        pattern: "Push",
+        type: "Isolation",
         equipment: "dumbbell",
-        muscle: "Side Deltoids",
+        primaryMuscle: "Side Delts",
+        secondaryMuscles: ["Traps"],
+        jointAction: "Shoulder abduction in the scapular plane",
         difficulty: "Beginner",
-        description: "The undisputed best movement for building wide, capped shoulders.",
+        description: "The key isolation exercise for developing shoulder width and capping delts.",
         steps: [
-            "Stand holding dumbbells at your sides with a slight bend in the elbows.",
-            "Raise your arms straight out to the sides until parallel with the floor.",
-            "Control the eccentric on the way down."
+            "Hold dumbbells at your sides with a slight bend in your elbows.",
+            "Raise your arms out to the sides until parallel to the floor.",
+            "Control the weight on the way down without swinging."
         ]
     },
     {
         id: 8,
         name: "Pec Deck Fly",
         category: "upper",
+        pattern: "Push",
+        type: "Isolation",
         equipment: "machine",
-        muscle: "Chest / Pectorals",
+        primaryMuscle: "Chest",
+        secondaryMuscles: ["Front Delts"],
+        jointAction: "Guided horizontal shoulder adduction",
         difficulty: "Beginner",
-        description: "Isolates the chest muscles with a great stretch and peak contraction.",
+        description: "Isolates the chest muscles, offering constant tension and peak contraction.",
         steps: [
-            "Sit with your back flat against the pad.",
-            "Grip the handles and bring your arms together in front of you.",
-            "Squeeze your chest for a second at the center.",
-            "Slowly open your arms to feel the stretch."
+            "Sit with your back flat against the machine pad.",
+            "Grip the handles and bring your arms together in front of your chest.",
+            "Pause for a second at the center to squeeze the pectorals.",
+            "Slowly open your arms back up to stretch the chest."
         ]
     },
     {
         id: 9,
         name: "Single-Arm Dumbbell Row",
         category: "upper",
+        pattern: "Pull",
+        type: "Compound",
         equipment: "dumbbell",
-        muscle: "Back / Lats",
+        primaryMuscle: "Lats",
+        secondaryMuscles: ["Biceps", "Rear Delts"],
+        jointAction: "Unilateral shoulder extension and elbow flexion",
         difficulty: "Intermediate",
-        description: "Unilateral pulling movement to fix imbalances and build the lats.",
+        description: "Unilateral rowing movement to correct strength imbalances and build back depth.",
         steps: [
-            "Place one knee and hand on a flat bench.",
-            "Hold a dumbbell in the free hand and let it hang.",
-            "Row the dumbbell up toward your hip, keeping the elbow tucked.",
-            "Lower slowly until you feel a lat stretch."
+            "Place one knee and hand on a flat bench for support.",
+            "Hold a dumbbell in the opposite hand hanging straight down.",
+            "Pull the dumbbell up toward your hip, driving back with your elbow.",
+            "Lower the weight back down to achieve a full stretch."
         ]
     },
     {
         id: 10,
         name: "Machine Shoulder Press",
         category: "upper",
+        pattern: "Push",
+        type: "Compound",
         equipment: "machine",
-        muscle: "Shoulders",
+        primaryMuscle: "Front Delts",
+        secondaryMuscles: ["Triceps"],
+        jointAction: "Guided shoulder flexion/abduction",
         difficulty: "Beginner",
-        description: "Safe and stable way to overload the front delts without worrying about balance.",
+        description: "A stable option to overload shoulder muscles without requiring balance control.",
         steps: [
-            "Adjust the seat so the handles are at shoulder level.",
-            "Grip the handles and press straight up.",
-            "Control the weight back down without letting the plates crash."
+            "Adjust the seat height so handles align with your shoulder level.",
+            "Press upward until your arms are extended without locking out elbows.",
+            "Lower the handles slowly back to shoulder height."
         ]
     },
 
     // ================= ARMS (11 - 20) =================
-    // Bíceps
     {
         id: 11,
         name: "Barbell Bicep Curl",
         category: "arms",
+        pattern: "Pull",
+        type: "Isolation",
         equipment: "barbell",
-        muscle: "Biceps",
+        primaryMuscle: "Biceps",
+        secondaryMuscles: ["Brachialis", "Forearms"],
+        jointAction: "Elbow flexion",
         difficulty: "Intermediate",
-        description: "The classic mass builder for overall bicep size.",
+        description: "Classic mass-building exercise targeting the front of the upper arms.",
         steps: [
-            "Stand holding a barbell with an underhand grip.",
-            "Keep your chest up and elbows pinned to your sides.",
-            "Curl the weight up, squeezing the biceps.",
-            "Lower the bar under control."
+            "Stand tall with your elbows tucked close to your torso.",
+            "Flex your elbows to curl the barbell up toward chest level.",
+            "Squeeze the biceps at the top and lower under control."
         ]
     },
     {
         id: 12,
         name: "Incline Dumbbell Curl",
         category: "arms",
+        pattern: "Pull",
+        type: "Isolation",
         equipment: "dumbbell",
-        muscle: "Biceps (Long Head)",
+        primaryMuscle: "Biceps (Long Head)",
+        secondaryMuscles: ["Brachialis"],
+        jointAction: "Elbow flexion with shoulder in extension",
         difficulty: "Intermediate",
-        description: "Places the biceps in a deep stretch behind the torso for maximum muscle breakdown.",
+        description: "Places the biceps in a deep stretch behind the torso to emphasize biceps peak.",
         steps: [
-            "Sit on an incline bench (45-60 degrees) with dumbbells hanging straight down.",
-            "Keep your upper arms stationary and curl the weights.",
-            "Squeeze at the top and lower to a dead hang."
+            "Sit back on an incline bench (45°–60°) letting your arms hang down.",
+            "Keep your upper arms stationary and curl the dumbbells up.",
+            "Lower slowly until you reach a full stretch at the bottom."
         ]
     },
     {
         id: 13,
         name: "Machine Preacher Curl",
         category: "arms",
+        pattern: "Pull",
+        type: "Isolation",
         equipment: "machine",
-        muscle: "Biceps (Short Head)",
+        primaryMuscle: "Biceps (Short Head)",
+        secondaryMuscles: ["Brachialis"],
+        jointAction: "Elbow flexion with shoulder flexed",
         difficulty: "Beginner",
-        description: "Strict isolation exercise preventing cheating by locking the arms in place.",
+        description: "Eliminates momentum by locking the upper arms against an angled pad.",
         steps: [
-            "Sit down and lock your armpits over the preacher pad.",
-            "Grab the machine handles and curl towards your face.",
-            "Lower slowly until arms are almost fully extended."
+            "Rest your armpits comfortably over the pad edge.",
+            "Flex your arms to pull the resistance toward your face.",
+            "Lower with controlled tempo until your arms are nearly extended."
         ]
     },
     {
         id: 14,
         name: "Dumbbell Hammer Curl",
         category: "arms",
+        pattern: "Pull",
+        type: "Isolation",
         equipment: "dumbbell",
-        muscle: "Brachialis & Forearms",
+        primaryMuscle: "Forearms & Brachialis",
+        secondaryMuscles: ["Biceps"],
+        jointAction: "Elbow flexion in neutral grip",
         difficulty: "Beginner",
-        description: "Uses a neutral grip to target the brachialis, pushing the bicep up for a bigger peak.",
+        description: "Neutral grip targets the forearms and deep brachialis for arm thickness.",
         steps: [
-            "Hold dumbbells with palms facing each other.",
-            "Curl the weights keeping the neutral grip.",
-            "Squeeze at the top and lower under control."
+            "Hold dumbbells with your palms facing each other.",
+            "Curl the weights up without rotating your wrists.",
+            "Squeeze at the top and lower in a controlled manner."
         ]
     },
     {
         id: 15,
         name: "Cable Rope Curl",
         category: "arms",
+        pattern: "Pull",
+        type: "Isolation",
         equipment: "machine",
-        muscle: "Biceps",
+        primaryMuscle: "Biceps",
+        secondaryMuscles: ["Forearms"],
+        jointAction: "Elbow flexion with dynamic wrist positioning",
         difficulty: "Beginner",
-        description: "Provides constant tension throughout the entire range of motion.",
+        description: "Provides continuous cable tension throughout the full range of motion.",
         steps: [
             "Attach a rope to the lowest pulley setting.",
-            "Stand up and curl the rope, twisting your wrists out slightly at the top.",
-            "Lower slowly against the cable resistance."
+            "Curl the rope up, spreading your wrists slightly apart at the top.",
+            "Resist the pull of the cable as you lower back down."
         ]
     },
-    // Tríceps
     {
         id: 16,
         name: "Close-Grip Bench Press",
         category: "arms",
+        pattern: "Push",
+        type: "Compound",
         equipment: "barbell",
-        muscle: "Triceps",
+        primaryMuscle: "Triceps",
+        secondaryMuscles: ["Chest", "Front Delts"],
+        jointAction: "Elbow extension and horizontal shoulder adduction",
         difficulty: "Intermediate",
-        description: "The heaviest compound movement specifically for building tricep mass.",
+        description: "Heavy compound exercise for building overall triceps mass and lockout power.",
         steps: [
-            "Lie on the bench and take a grip slightly narrower than shoulder-width.",
-            "Lower the bar to your lower chest, keeping elbows tucked close to your ribs.",
-            "Press the bar up powerfully using your triceps."
+            "Lie on the bench and grip the bar at shoulder-width.",
+            "Lower the bar to your lower chest while keeping your elbows close to your torso.",
+            "Press straight up, focusing drive through the triceps."
         ]
     },
     {
         id: 17,
         name: "EZ-Bar Skull Crushers",
         category: "arms",
+        pattern: "Push",
+        type: "Isolation",
         equipment: "barbell",
-        muscle: "Triceps",
+        primaryMuscle: "Triceps",
+        secondaryMuscles: ["Forearms"],
+        jointAction: "Elbow extension in supine position",
         difficulty: "Intermediate",
-        description: "Essential isolation movement for overall tricep thickness.",
+        description: "Pure triceps extension exercise essential for arm mass and power.",
         steps: [
-            "Lie on a flat bench holding an EZ-bar over your forehead.",
-            "Bend at the elbows to lower the weight slightly behind your head.",
-            "Extend the arms back to the starting position."
+            "Lie on a flat bench holding an EZ-bar above your chest.",
+            "Bend only at the elbows to lower the bar toward your forehead.",
+            "Extend your elbows back to return to the vertical position."
         ]
     },
     {
         id: 18,
         name: "Cable Tricep Pushdown",
         category: "arms",
+        pattern: "Push",
+        type: "Isolation",
         equipment: "machine",
-        muscle: "Triceps",
+        primaryMuscle: "Triceps",
+        secondaryMuscles: ["Forearms"],
+        jointAction: "Elbow extension",
         difficulty: "Beginner",
-        description: "The most common and effective tricep isolation exercise.",
+        description: "The most popular triceps isolation movement for direct tension and pump.",
         steps: [
-            "Attach a rope or straight bar to a high pulley.",
-            "Pin your elbows to your sides.",
-            "Push the weight down until your arms are fully locked out.",
-            "Control the eccentric phase on the way up."
+            "Use a straight bar or rope on a high pulley.",
+            "Keep your elbows pinned to your sides.",
+            "Push the attachment down until your arms fully extend.",
+            "Allow the bar to rise under control."
         ]
     },
     {
         id: 19,
         name: "Overhead Dumbbell Tricep Extension",
         category: "arms",
+        pattern: "Push",
+        type: "Isolation",
         equipment: "dumbbell",
-        muscle: "Triceps (Long Head)",
+        primaryMuscle: "Triceps (Long Head)",
+        secondaryMuscles: ["Forearms"],
+        jointAction: "Elbow extension with shoulder flexed overhead",
         difficulty: "Beginner",
-        description: "Targets the long head of the tricep by putting it in a fully stretched overhead position.",
+        description: "Targets the triceps long head by placing the muscle in a stretched overhead position.",
         steps: [
-            "Hold a single heavy dumbbell with both hands overhead.",
-            "Lower the weight behind your head by bending the elbows.",
-            "Press it back up to full extension."
+            "Hold a dumbbell vertically behind your head with both hands.",
+            "Lower the weight behind your neck by bending your elbows.",
+            "Extend your elbows to press the weight back overhead."
         ]
     },
     {
         id: 20,
         name: "Cable Overhead Extension",
         category: "arms",
+        pattern: "Push",
+        type: "Isolation",
         equipment: "machine",
-        muscle: "Triceps (Long Head)",
+        primaryMuscle: "Triceps (Long Head)",
+        secondaryMuscles: ["Forearms"],
+        jointAction: "Overhead elbow extension with cable",
         difficulty: "Intermediate",
-        description: "Similar to the dumbbell version but with the constant tension of a cable.",
+        description: "Smooth overhead tension for the long head without dead spots in resistance.",
         steps: [
-            "Set a pulley at hip height with a rope attachment.",
-            "Face away from the machine and pull the rope overhead.",
-            "Extend your arms straight out, feeling the stretch at the bottom."
+            "Attach a rope to a mid-level pulley and face away from the machine.",
+            "Pull the rope behind your head with elbows bent.",
+            "Extend your arms forward and up until fully locked out."
         ]
     },
 
@@ -307,142 +384,182 @@ const exercises = [
         id: 21,
         name: "Barbell Back Squat",
         category: "lower",
+        pattern: "Legs",
+        type: "Compound",
         equipment: "barbell",
-        muscle: "Quads & Glutes",
+        primaryMuscle: "Quads",
+        secondaryMuscles: ["Glutes", "Adductors", "Hamstrings"],
+        jointAction: "Knee extension and hip extension",
         difficulty: "Advanced",
-        description: "The absolute undisputed king of lower body muscle and strength.",
+        description: "The undisputed king of lower body exercises for overall leg size and strength.",
         steps: [
-            "Rest the barbell on your upper traps.",
-            "Squat down by breaking at the hips and knees simultaneously.",
-            "Hit parallel or lower, keeping your chest up.",
-            "Drive through your mid-foot to stand back up."
+            "Rest the barbell across your upper trapezius and unrack it.",
+            "Descend by bending knees and flexing hips simultaneously.",
+            "Squat down until thighs are parallel or below parallel to the floor.",
+            "Drive through mid-foot to return to a standing position."
         ]
     },
     {
         id: 22,
         name: "Romanian Deadlift (RDL)",
         category: "lower",
+        pattern: "Legs",
+        type: "Compound",
         equipment: "barbell",
-        muscle: "Hamstrings & Glutes",
+        primaryMuscle: "Hamstrings & Glutes",
+        secondaryMuscles: ["Lower Back", "Adductors"],
+        jointAction: "Hip hinge (Hip extension)",
         difficulty: "Intermediate",
-        description: "The best exercise for building massive hamstrings and posterior chain strength.",
+        description: "Premier posterior chain movement emphasizing deep hamstring stretch.",
         steps: [
-            "Hold the bar at hip level with a slight bend in your knees.",
-            "Push your hips back as far as possible, sliding the bar down your legs.",
-            "Feel the deep stretch in your hamstrings, then squeeze glutes to stand."
+            "Hold the bar at hip height with knees soft and slightly bent.",
+            "Push your hips back as the bar glides down close to your legs.",
+            "Feel the hamstring stretch and drive hips forward to stand tall."
         ]
     },
     {
         id: 23,
         name: "Barbell Hip Thrust",
         category: "lower",
+        pattern: "Legs",
+        type: "Compound",
         equipment: "barbell",
-        muscle: "Glutes",
+        primaryMuscle: "Glutes",
+        secondaryMuscles: ["Hamstrings", "Quads"],
+        jointAction: "Pure hip extension",
         difficulty: "Intermediate",
-        description: "The most effective movement for isolating and building the gluteus maximus.",
+        description: "Offers peak muscle activation for building strong and powerful glutes.",
         steps: [
-            "Sit on the floor with your upper back against a bench and a padded barbell over your hips.",
-            "Drive through your heels to thrust the barbell upward.",
-            "Squeeze your glutes hard at the top lockout.",
-            "Lower the hips under control."
+            "Position your upper back against a bench with a padded bar over your hips.",
+            "Drive through your heels to extend your hips toward the ceiling.",
+            "Squeeze your glutes tightly at the top in full lockout.",
+            "Lower hips back down under control."
         ]
     },
     {
         id: 24,
         name: "Leg Press",
         category: "lower",
+        pattern: "Legs",
+        type: "Compound",
         equipment: "machine",
-        muscle: "Quads & Glutes",
+        primaryMuscle: "Quads",
+        secondaryMuscles: ["Glutes", "Adductors"],
+        jointAction: "Incline knee extension and hip extension",
         difficulty: "Beginner",
-        description: "Allows for maximum heavy loading on the legs without lower back fatigue.",
+        description: "High quad overload potential without heavy stress on the lower spine.",
         steps: [
-            "Sit in the machine and place your feet shoulder-width apart.",
-            "Unrack the sled and lower it until your knees hit 90 degrees.",
-            "Press the weight back up without fully locking your knees out."
+            "Place feet shoulder-width apart on the footplate.",
+            "Release safety catches and lower the plate to a 90-degree knee bend.",
+            "Press the sled up smoothly without locking out knees hard."
         ]
     },
     {
         id: 25,
         name: "Bulgarian Split Squat",
         category: "lower",
+        pattern: "Legs",
+        type: "Compound",
         equipment: "dumbbell",
-        muscle: "Quads & Glutes",
+        primaryMuscle: "Quads & Glutes",
+        secondaryMuscles: ["Hamstrings", "Core"],
+        jointAction: "Unilateral knee extension and hip extension",
         difficulty: "Advanced",
-        description: "Brutal unilateral exercise that fixes leg imbalances and builds massive quads.",
+        description: "Demanding single-leg exercise to fix muscular imbalances and build mass.",
         steps: [
-            "Rest your back foot on a bench and hold dumbbells in your hands.",
-            "Drop your back knee straight down toward the floor.",
-            "Drive through the front heel to return to the starting position."
+            "Elevate your rear foot on a flat bench behind you.",
+            "Hold dumbbells at sides and descend until rear knee nears the floor.",
+            "Drive through the front heel to return to standing."
         ]
     },
     {
         id: 26,
         name: "Leg Extension",
         category: "lower",
+        pattern: "Legs",
+        type: "Isolation",
         equipment: "machine",
-        muscle: "Quadriceps",
+        primaryMuscle: "Quads",
+        secondaryMuscles: ["Knee Stabilizers"],
+        jointAction: "Pure knee extension",
         difficulty: "Beginner",
-        description: "The only movement that truly isolates the rectus femoris muscle of the quad.",
+        description: "Directly isolates quad extension for peak quad development.",
         steps: [
-            "Sit at the machine with the pad resting just above your ankles.",
-            "Extend your legs fully to kick the weight up.",
-            "Hold the squeeze for a second, then lower slowly."
+            "Adjust the machine pad so it rests against your lower shins.",
+            "Extend your legs fully upward until knees lock softly.",
+            "Pause for a second at top and lower under control."
         ]
     },
     {
         id: 27,
         name: "Seated Leg Curl",
         category: "lower",
+        pattern: "Legs",
+        type: "Isolation",
         equipment: "machine",
-        muscle: "Hamstrings",
+        primaryMuscle: "Hamstrings",
+        secondaryMuscles: ["Calves"],
+        jointAction: "Knee flexion",
         difficulty: "Beginner",
-        description: "Isolates the hamstrings in a stretched position for optimal muscle growth.",
+        description: "Isolates hamstrings in a seated position for maximum stretch and load.",
         steps: [
-            "Sit in the machine and secure the thigh pad tight.",
-            "Curl your legs back as far as possible.",
-            "Control the weight on the way up to maintain tension."
+            "Sit with thigh pad locked tightly over your upper legs.",
+            "Flex knees to pull the roller pad down and back.",
+            "Slowly return to start position under continuous tension."
         ]
     },
     {
         id: 28,
         name: "Dumbbell Goblet Squat",
         category: "lower",
+        pattern: "Legs",
+        type: "Compound",
         equipment: "dumbbell",
-        muscle: "Quads & Core",
+        primaryMuscle: "Quads",
+        secondaryMuscles: ["Glutes", "Core"],
+        jointAction: "Knee and hip extension with front loading",
         difficulty: "Beginner",
-        description: "Excellent alternative to barbell squats that naturally enforces good posture.",
+        description: "Great squat variation to master depth while keeping an upright posture.",
         steps: [
-            "Hold a single heavy dumbbell vertically against your chest.",
-            "Squat straight down, keeping your torso very upright.",
-            "Drive back up using your quads."
+            "Hold a dumbbell vertically close against your chest.",
+            "Squat down deep while keeping your torso upright.",
+            "Push through the floor to stand back up."
         ]
     },
     {
         id: 29,
         name: "Hack Squat",
         category: "lower",
+        pattern: "Legs",
+        type: "Compound",
         equipment: "machine",
-        muscle: "Quadriceps",
+        primaryMuscle: "Quads",
+        secondaryMuscles: ["Glutes"],
+        jointAction: "Guided knee extension",
         difficulty: "Intermediate",
-        description: "Machine squat variation that provides back support for ultimate quad targeting.",
+        description: "Fixed trajectory machine squat ideal for heavy quad isolation.",
         steps: [
-            "Step into the machine with your back flat against the pad.",
-            "Squat down as deep as your mobility allows.",
-            "Press back up aggressively through the entire foot."
+            "Position back flat against pad with shoulders under supports.",
+            "Lower weight deep into knees as far as your mobility allows.",
+            "Drive through entire foot surface to extend back up."
         ]
     },
     {
         id: 30,
         name: "Standing Calf Raise",
         category: "lower",
+        pattern: "Legs",
+        type: "Isolation",
         equipment: "machine",
-        muscle: "Calves / Gastrocnemius",
+        primaryMuscle: "Calves",
+        secondaryMuscles: ["Soleus"],
+        jointAction: "Ankle plantarflexion",
         difficulty: "Beginner",
-        description: "The absolute necessity for growing stubborn calf muscles.",
+        description: "Fundamental exercise with extended knees for building calf muscle volume.",
         steps: [
-            "Stand with the balls of your feet on the edge of the platform.",
-            "Lower your heels down to get a deep stretch.",
-            "Drive up onto your toes, squeezing the calves hard at the top."
+            "Place balls of feet on platform edge.",
+            "Lower heels down deep to stretch lower legs.",
+            "Rise up onto toes with a strong top contraction."
         ]
     }
 ];
@@ -455,7 +572,7 @@ function displayExercises(items) {
     grid.innerHTML = "";
 
     if (items.length === 0) {
-        grid.innerHTML = "<p style='grid-column: 1/-1; text-align: center; color: #666;'>No exercises match the selected combination.</p>";
+        grid.innerHTML = "<p style='grid-column: 1/-1; text-align: center; color: #666;'>No exercises found matching your search.</p>";
         return;
     }
 
@@ -464,20 +581,28 @@ function displayExercises(items) {
         card.className = "ex-card";
         
         const diffClass = ex.difficulty.toLowerCase(); 
+        const patternClass = ex.pattern.toLowerCase();
 
         card.innerHTML = `
             <div class="ex-header">
                 <div class="ex-title">
                     <h3>${ex.name}</h3>
                     <div class="badge-group">
-                        <span class="ex-badge">${ex.muscle}</span>
+                        <span class="ex-badge category-badge">${ex.primaryMuscle}</span>
+                        <span class="ex-badge pattern-badge ${patternClass}">${ex.pattern}</span>
+                        <span class="ex-badge type-badge">${ex.type}</span>
                         <span class="difficulty-badge ${diffClass}">${ex.difficulty}</span>
                     </div>
                 </div>
                 <span class="toggle-icon">+</span>
             </div>
             <div class="ex-body">
-                <p>${ex.description}</p>
+                <p><strong>Description:</strong> ${ex.description}</p>
+                <div class="biomechanics-info" style="margin: 10px 0; background: #f8faf9; padding: 10px; border-radius: 6px;">
+                    <p style="margin-bottom: 4px;"><strong>Primary Muscle:</strong> <span style="color: #2B5748; font-weight: bold;">${ex.primaryMuscle}</span></p>
+                    <p style="margin-bottom: 4px;"><strong>Secondary Muscles:</strong> ${ex.secondaryMuscles.join(", ")}</p>
+                    <p style="margin-bottom: 0;"><strong>Joint Action:</strong> <em>${ex.jointAction}</em></p>
+                </div>
                 <strong>Execution Steps:</strong>
                 <ul>
                     ${ex.steps.map(step => `<li>${step}</li>`).join('')}
@@ -499,10 +624,19 @@ function displayExercises(items) {
 }
 
 function applyFilters() {
+    const searchInput = document.getElementById("searchInput");
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
+
     const filtered = exercises.filter(ex => {
         const matchesCategory = (activeCategory === "all") || (ex.category === activeCategory);
         const matchesEquipment = (activeEquipment === "all") || (ex.equipment === activeEquipment);
-        return matchesCategory && matchesEquipment;
+        
+        const matchesSearch = ex.name.toLowerCase().includes(query) || 
+                              ex.primaryMuscle.toLowerCase().includes(query) ||
+                              ex.pattern.toLowerCase().includes(query) ||
+                              ex.type.toLowerCase().includes(query);
+
+        return matchesCategory && matchesEquipment && matchesSearch;
     });
 
     displayExercises(filtered);
@@ -511,7 +645,12 @@ function applyFilters() {
 document.addEventListener("DOMContentLoaded", () => {
     displayExercises(exercises);
 
-    const categoryBtns = document.querySelectorAll("[data-category]");
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+        searchInput.addEventListener("input", applyFilters);
+    }
+
+    const categoryBtns = document.querySelectorAll(".category-group .filter-btn");
     categoryBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             categoryBtns.forEach(b => b.classList.remove("active"));
@@ -521,7 +660,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const equipmentBtns = document.querySelectorAll("[data-equipment]");
+    const equipmentBtns = document.querySelectorAll(".equipment-group .filter-btn");
     equipmentBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             equipmentBtns.forEach(b => b.classList.remove("active"));
