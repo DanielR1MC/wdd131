@@ -345,6 +345,9 @@
     line-height: 1.5;
     margin: 0;
 }
+.bio-container.hidden {
+    display: none;
+}
 @media (max-width: 700px) {
     .exercise-grid {
         grid-template-columns: 1fr;

@@ -659,19 +659,6 @@ document.addEventListener("DOMContentLoaded", () => {
             applyFilters();
         });
     });
-    const tabBtns = document.querySelectorAll(".tab-btn");
-    const tabPanels = document.querySelectorAll(".tab-panel");
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            tabBtns.forEach(b => b.classList.remove("active"));
-            tabPanels.forEach(p => p.classList.remove("active"));
-
-            btn.classList.add("active");
-            const selectedTab = btn.getAttribute("data-tab");
-            document.getElementById(selectedTab).classList.add("active");
-        });
-    });
 
     const equipmentBtns = document.querySelectorAll(".equipment-group .filter-btn");
     equipmentBtns.forEach(btn => {
@@ -683,17 +670,48 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // ================= PESTAÑAS (TABS) BIOMECÁNICA =================
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            tabBtns.forEach(b => b.classList.remove("active"));
+            tabPanels.forEach(p => p.classList.remove("active"));
+
+            btn.classList.add("active");
+            const selectedTab = btn.getAttribute("data-tab");
+            const targetPanel = document.getElementById(selectedTab);
+            if (targetPanel) targetPanel.classList.add("active");
+        });
+    });
+
+    // ================= DESPLEGABLE (TOGGLE) GUÍA =================
     const toggleBioBtn = document.getElementById("toggle-bio-btn");
     const bioContent = document.getElementById("bio-content");
 
     if (toggleBioBtn && bioContent) {
         toggleBioBtn.addEventListener("click", () => {
-            if (bioContent.style.display === "none") {
-                bioContent.style.display = "flex";
+            const isHidden = bioContent.classList.contains("hidden");
+
+            if (isHidden) {
+                bioContent.classList.remove("hidden");
+                toggleBioBtn.classList.remove("collapsed");
                 toggleBioBtn.textContent = "Hide Guide ▲";
             } else {
-                bioContent.style.display = "none";
+                bioContent.classList.add("hidden");
+                toggleBioBtn.classList.add("collapsed");
                 toggleBioBtn.textContent = "Show Guide ▼";
+
+                // Reinicia a la pestaña 1 al cerrar la guía
+                tabBtns.forEach(b => b.classList.remove("active"));
+                tabPanels.forEach(p => p.classList.remove("active"));
+
+                const defaultTabBtn = document.querySelector('.tab-btn[data-tab="tab-1"]');
+                const defaultTabPanel = document.getElementById("tab-1");
+
+                if (defaultTabBtn) defaultTabBtn.classList.add("active");
+                if (defaultTabPanel) defaultTabPanel.classList.add("active");
             }
         });
     }
