@@ -49,68 +49,82 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     function renderRatingList(filterText = "") {
-        if (!ratingListContainer) return;
-        ratingListContainer.innerHTML = "";
+    if (!ratingListContainer) return;
+    ratingListContainer.innerHTML = "";
 
-        const exerciseData = (typeof exercises !== "undefined") ? exercises : [];
+    const exerciseData = (typeof exercises !== "undefined") ? exercises : [];
 
-        const filtered = exerciseData.filter(ex => 
-            ex.name.toLowerCase().includes(filterText.toLowerCase().trim())
-        );
+    const filtered = exerciseData.filter(ex => 
+        ex.name.toLowerCase().includes(filterText.toLowerCase().trim())
+    );
 
-        if (filtered.length === 0) {
-            ratingListContainer.innerHTML = "<p style='text-align:center; color:#888;'>No exercises found.</p>";
-            return;
-        }
-
-        filtered.forEach(ex => {
-            const card = document.createElement("div");
-            card.className = "rating-item-card";
-
-            const officialScore = officialRatings[ex.id] || 4.5;
-            const commData = communityRatings[ex.id] || { score: officialScore, count: 1 };
-
-            card.innerHTML = `
-                <h4>${ex.name}</h4>
-                <div class="ratings-display">
-                    <span><strong>Page Rating:</strong> ★ ${officialScore.toFixed(1)}</span>
-                    <span><strong>Community:</strong> ★ ${commData.score.toFixed(1)} (${commData.count})</span>
-                </div>
-                <div class="user-vote-control">
-                    <span>Your Rating:</span>
-                    <select class="star-select" data-id="${ex.id}">
-                        <option value="" disabled selected>Rate</option>
-                        <option value="0.5">0.5 ★</option>
-                        <option value="1.0">1.0 ★</option>
-                        <option value="1.5">1.5 ★</option>
-                        <option value="2.0">2.0 ★</option>
-                        <option value="2.5">2.5 ★</option>
-                        <option value="3.0">3.0 ★</option>
-                        <option value="3.5">3.5 ★</option>
-                        <option value="4.0">4.0 ★</option>
-                        <option value="4.5">4.5 ★</option>
-                        <option value="5.0">5.0 ★</option>
-                    </select>
-                </div>
-            `;
-
-            const select = card.querySelector(".star-select");
-            select.addEventListener("change", (e) => {
-                const userVal = parseFloat(e.target.value);
-                const currentData = communityRatings[ex.id] || { score: officialScore, count: 1 };
-                
-                const newCount = currentData.count + 1;
-                const newScore = ((currentData.score * currentData.count) + userVal) / newCount;
-
-                communityRatings[ex.id] = { score: newScore, count: newCount };
-                localStorage.setItem("fitguide_community_ratings", JSON.stringify(communityRatings));
-
-                renderRatingList(ratingSearchInput ? ratingSearchInput.value : "");
-            });
-
-            ratingListContainer.appendChild(card);
-        });
+    if (filtered.length === 0) {
+        ratingListContainer.innerHTML = "<p style='text-align:center; color:#888;'>No exercises found.</p>";
+        return;
     }
+
+    filtered.forEach(ex => {
+        const card = document.createElement("div");
+        card.className = "rating-item-card";
+
+        const officialScore = officialRatings[ex.id] || 4.5;
+        const commData = communityRatings[ex.id] || { score: officialScore, count: 1 };
+
+        card.innerHTML = `
+            <h4>${ex.name}</h4>
+            <div class="ratings-display">
+                <span><strong>Page Rating:</strong> ★ ${officialScore.toFixed(1)}</span>
+                <span><strong>Community:</strong> ★ ${commData.score.toFixed(1)} (${commData.count})</span>
+            </div>
+            <div class="user-vote-control">
+                <span>Your Rating:</span>
+                <select class="star-select" id="select-${ex.id}">
+                    <option value="" disabled selected>Rate</option>
+                    <option value="0.5">0.5 ★</option>
+                    <option value="1.0">1.0 ★</option>
+                    <option value="1.5">1.5 ★</option>
+                    <option value="2.0">2.0 ★</option>
+                    <option value="2.5">2.5 ★</option>
+                    <option value="3.0">3.0 ★</option>
+                    <option value="3.5">3.5 ★</option>
+                    <option value="4.0">4.0 ★</option>
+                    <option value="4.5">4.5 ★</option>
+                    <option value="5.0">5.0 ★</option>
+                </select>
+                <button type="button" class="submit-rating-btn" data-id="${ex.id}">Submit Rating</button>
+            </div>
+            <p class="rating-status hidden" id="status-${ex.id}">★ Rating saved!</p>
+        `;
+
+        const submitBtn = card.querySelector(".submit-rating-btn");
+        const select = card.querySelector(".star-select");
+        const statusMsg = card.querySelector(".rating-status");
+
+        submitBtn.addEventListener("click", () => {
+            const userVal = parseFloat(select.value);
+
+            if (isNaN(userVal)) {
+                alert("Please select a rating before submitting.");
+                return;
+            }
+
+            // Confirmación para evitar miss-clicks
+            const confirmVote = confirm(`Are you sure you want to rate "${ex.name}" with ${userVal} stars?`);
+            if (!confirmVote) return;
+
+            const currentData = communityRatings[ex.id] || { score: officialScore, count: 1 };
+            const newCount = currentData.count + 1;
+            const newScore = ((currentData.score * currentData.count) + userVal) / newCount;
+
+            communityRatings[ex.id] = { score: newScore, count: newCount };
+            localStorage.setItem("fitguide_community_ratings", JSON.stringify(communityRatings));
+
+            renderRatingList(ratingSearchInput ? ratingSearchInput.value : "");
+        });
+
+        ratingListContainer.appendChild(card);
+    });
+}
 
     if (ratingSearchInput) {
         ratingSearchInput.addEventListener("input", (e) => {

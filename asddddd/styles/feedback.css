@@ -286,7 +286,28 @@
 .like-btn:hover {
     background-color: #e2e8f0;
 }
+.submit-rating-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
 
+.submit-rating-btn:hover {
+    filter: brightness(1.15);
+}
+
+.rating-status {
+    color: #2e7d32;
+    font-size: 0.78rem;
+    font-weight: bold;
+    margin-top: 4px;
+}
 @media (max-width: 768px) {
     .top-cards-grid, .form-row {
         grid-template-columns: 1fr;
