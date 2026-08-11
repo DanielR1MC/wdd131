@@ -645,10 +645,13 @@ function applyFilters() {
 document.addEventListener("DOMContentLoaded", () => {
     displayExercises(exercises);
 
+    
     const searchInput = document.getElementById("searchInput");
     if (searchInput) {
         searchInput.addEventListener("input", applyFilters);
     }
+
+
 
     const categoryBtns = document.querySelectorAll(".category-group .filter-btn");
     categoryBtns.forEach(btn => {
@@ -660,6 +663,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+
+
     const equipmentBtns = document.querySelectorAll(".equipment-group .filter-btn");
     equipmentBtns.forEach(btn => {
         btn.addEventListener("click", () => {
@@ -669,6 +674,9 @@ document.addEventListener("DOMContentLoaded", () => {
             applyFilters();
         });
     });
+
+
+
 
     const tabBtns = document.querySelectorAll(".tab-btn");
     const tabPanels = document.querySelectorAll(".tab-panel");
@@ -685,8 +693,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+
     const toggleBioBtn = document.getElementById("toggle-bio-btn");
     const bioContent = document.getElementById("bio-content");
+
+
 
     if (toggleBioBtn && bioContent) {
         toggleBioBtn.addEventListener("click", () => {
