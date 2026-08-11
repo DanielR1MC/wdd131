@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 
-
     const yrElem = document.getElementById("currentyear");
     const modElem = document.getElementById("lastModified");
 
@@ -36,11 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
     const ratingBox = document.getElementById("exerciseRatingList");
     const searchInput = document.getElementById("ratingSearchInput");
 
     let userRatings = JSON.parse(localStorage.getItem("fitguide_community_ratings")) || {};
+
 
     const defaultScores = {
         1: 4.8, 2: 4.7, 3: 4.6, 4: 4.5, 5: 4.8,
@@ -51,11 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
         26: 4.2, 27: 4.3, 28: 4.4, 29: 4.5, 30: 4.1
     };
 
+
+
     function renderRatingList(query = "") {
         if (!ratingBox) return;
         ratingBox.innerHTML = "";
-
-
 
         const filtered = exercises.filter(ex => 
             ex.name.toLowerCase().includes(query.toLowerCase().trim())
@@ -66,6 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+
+
         filtered.forEach(ex => {
             const card = document.createElement("div");
             card.className = "rating-item-card";
@@ -74,13 +75,21 @@ document.addEventListener("DOMContentLoaded", () => {
             
 
 
-            const savedRating = userRatings[ex.id] || baseScore;
+            let commData = userRatings[ex.id];
+
+
+
+            if (!commData || typeof commData !== "object") {
+                commData = { score: baseScore, count: 1 };
+            }
+
+
 
             card.innerHTML = `
                 <h4>${ex.name}</h4>
                 <div class="ratings-display">
                     <span><strong>Page Rating:</strong> ★ ${baseScore}</span>
-                    <span><strong>Community:</strong> ★ ${savedRating}</span>
+                    <span><strong>Community:</strong> ★ ${commData.score} (${commData.count} votes)</span>
                 </div>
                 <div class="user-vote-control">
                     <span>Your Rating:</span>
@@ -99,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+            
             const btnSub = card.querySelector(".submit-rating-btn");
             const selectElem = card.querySelector(".star-select");
 
@@ -113,9 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-                const finalScore = ((baseScore + val) / 2).toFixed(1);
+                const newCount = commData.count + 1;
+                const newScore = Number((((commData.score * commData.count) + val) / newCount).toFixed(1));
 
-                userRatings[ex.id] = finalScore;
+                // Guardar en objeto
+                userRatings[ex.id] = { score: newScore, count: newCount };
                 localStorage.setItem("fitguide_community_ratings", JSON.stringify(userRatings));
 
                 renderRatingList(searchInput ? searchInput.value : "");
