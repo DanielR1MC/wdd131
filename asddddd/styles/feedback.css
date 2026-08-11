@@ -10,7 +10,7 @@
 .feedback-hero {
     text-align: center;
     background-color: var(--primary-color);
-    color: #ffffff;
+    color: var(--white);
     padding: 22px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -22,7 +22,7 @@
 }
 
 .feedback-hero p {
-    color: #e2e8f0;
+    color: var(--border-color);
     font-size: 0.95rem;
 }
 
@@ -34,9 +34,9 @@
 }
 
 .side-card {
-    background: #ffffff;
+    background: var(--bg-card);
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
     padding: 24px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
     display: flex;
@@ -50,7 +50,7 @@
 }
 
 .side-card p, .public-comments p {
-    color: #555;
+    color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 14px;
 }
@@ -74,7 +74,7 @@
 .search-box input {
     width: 100%;
     padding: 10px 12px;
-    border: 1.5px solid #ccc;
+    border: 1.5px solid var(--border-input);
     border-radius: 6px;
     font-size: 0.9rem;
     font-family: inherit;
@@ -91,7 +91,7 @@
 
 .btn-submit {
     background-color: var(--primary-color);
-    color: #ffffff;
+    color: var(--white);
     padding: 10px 18px;
     border: none;
     border-radius: 6px;
@@ -101,18 +101,24 @@
     transition: background-color 0.2s ease;
 }
 
-.btn-submit:hover {filter: brightness(1.15);}
+.btn-submit:hover {
+    filter: brightness(1.15);
+}
 
 .form-status {
-    color: #2e7d32;
+    color: var(--success-color);
     font-weight: bold;
     margin-top: 10px;
     font-size: 0.88rem;
 }
 
-.hidden {display: none;}
+.hidden {
+    display: none !important;
+}
 
-.search-box {margin-bottom: 12px;}
+.search-box {
+    margin-bottom: 12px;
+}
 
 .rating-scroll {
     max-height: 280px;
@@ -124,8 +130,8 @@
 }
 
 .rating-item-card {
-    background: #f8faf9;
-    border: 1px solid #e2e8f0;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 12px;
 }
@@ -140,7 +146,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 0.8rem;
-    color: #444;
+    color: var(--text-color);
     margin: 6px 0;
 }
 
@@ -156,12 +162,12 @@
     padding: 4px 6px;
     font-size: 0.82rem;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-input);
 }
 
 .submit-rating-btn {
     background-color: var(--primary-color);
-    color: #ffffff;
+    color: var(--white);
     border: none;
     padding: 4px 10px;
     border-radius: 4px;
@@ -176,10 +182,15 @@
 }
 
 .rating-status {
-    color: #2e7d32;
+    color: var(--success-color);
     font-size: 0.78rem;
     font-weight: bold;
     margin-top: 4px;
+}
+
+.no-results-msg {
+    text-align: center;
+    color: var(--text-muted);
 }
 
 .public-comments {
@@ -187,8 +198,8 @@
 }
 
 .comment-box {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 18px;
     margin-bottom: 25px;
@@ -196,15 +207,15 @@
 }
 
 .comment-box textarea {
-    background-color: #fafafa;
-    border: 1px solid #e2e8f0;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     resize: vertical;
 }
 
 .btn-post {
     background-color: var(--primary-color);
-    color: #ffffff;
+    color: var(--white);
     padding: 8px 20px;
     border: none;
     border-radius: 6px;
@@ -220,8 +231,8 @@
 }
 
 .cmt-card {
-    background: #ffffff;
-    border: 1px solid #e8ecef;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 16px 20px;
     display: flex;
@@ -233,8 +244,8 @@
 .usr-avatar {
     width: 42px;
     height: 42px;
-    background-color: #cbd5e1;
-    color: #475569;
+    background-color: var(--avatar-bg);
+    color: var(--avatar-text);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -260,17 +271,17 @@
 .usr-name {
     font-weight: 700;
     font-size: 0.95rem;
-    color: #1e293b;
+    color: var(--text-color);
 }
 
 .cmt-date {
     font-size: 0.78rem;
-    color: #94a3b8;
+    color: var(--text-light);
 }
 
 .cmt-txt {
     font-size: 0.92rem;
-    color: #334155;
+    color: var(--text-color);
     line-height: 1.5;
     margin-bottom: 12px;
 }
@@ -282,12 +293,12 @@
 }
 
 .btn-like {
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
     padding: 3px 10px;
     border-radius: 4px;
     font-size: 0.8rem;
-    color: #64748b;
+    color: var(--text-muted);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -295,7 +306,7 @@
 }
 
 .btn-like:hover {
-    background-color: #e2e8f0;
+    background-color: var(--border-color);
 }
 
 @media (max-width: 768px) {

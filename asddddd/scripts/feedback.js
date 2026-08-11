@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         if (filtered.length === 0) {
-            ratingBox.innerHTML = "<p style='text-align:center; color:#888;'>No exercises found.</p>";
+            ratingBox.innerHTML = "<p class=\"no-results-msg\">No exercises found.</p>";
             return;
         }
 
