@@ -24,7 +24,7 @@
     --avatar-bg: #cbd5e1;
     --avatar-text: #475569;
 }
-
+h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
 header {
     padding-top: 10px;
     background-color: var(--primary-color);
