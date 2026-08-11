@@ -6,7 +6,7 @@ if (currentYearElem) currentYearElem.textContent = currentYear;
 if (lastModifiedElem) lastModifiedElem.innerHTML = document.lastModified;
 
 const exercises = [
-    // ================= UPPER BODY (1 - 10) =================
+    // ================= UPPER BODYYYYY (1 - 10) =================
     {
         id: 1,
         name: "Barbell Bench Press",
@@ -196,7 +196,7 @@ const exercises = [
         ]
     },
 
-    // ================= ARMS (11 - 20) =================
+    // ================= ARMS LIGHT WEIGHT 🗣️ (11 - 20) =================
     {
         id: 11,
         name: "Barbell Bicep Curl",
@@ -379,7 +379,7 @@ const exercises = [
         ]
     },
 
-    // ================= LOWER BODY (21 - 30) =================
+    // ================= LOWER BODY YEAAH BUDDY 🗣️🔥(21 - 30) =================
     {
         id: 21,
         name: "Barbell Back Squat",
@@ -612,6 +612,8 @@ function displayExercises(items) {
             </div>
         `;
 
+
+
         const header = card.querySelector(".ex-header");
         const body = card.querySelector(".ex-body");
         const icon = card.querySelector(".toggle-icon");
@@ -624,6 +626,8 @@ function displayExercises(items) {
         grid.appendChild(card);
     });
 }
+
+
 
 function applyFilters() {
     const searchInput = document.getElementById("searchInput");

@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+    
     const ratingBox = document.getElementById("exerciseRatingList");
     const searchInput = document.getElementById("ratingSearchInput");
 
