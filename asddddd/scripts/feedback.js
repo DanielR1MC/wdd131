@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Footer Updates
+    // 1. FOOTER UPDATES
     const currentYear = new Date().getFullYear();
     const currentYearElem = document.getElementById("currentyear");
     const lastModifiedElem = document.getElementById("lastModified");
@@ -7,30 +7,38 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentYearElem) currentYearElem.textContent = currentYear;
     if (lastModifiedElem) lastModifiedElem.innerHTML = document.lastModified;
 
-    // 2. SUGGESTION FORM (Card Izquierda)
+    // 2. SUGERENCIAS PRIVADAS
     const suggestionForm = document.getElementById("suggestionForm");
     const suggestionSuccess = document.getElementById("suggestionSuccess");
 
     if (suggestionForm) {
         suggestionForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            suggestionSuccess.classList.remove("hidden");
-            suggestionForm.reset();
 
-            setTimeout(() => {
-                suggestionSuccess.classList.add("hidden");
-            }, 4000);
+            const type = document.getElementById("suggestionType").value;
+            const text = document.getElementById("suggestionText").value.trim();
+
+            const savedSuggestions = JSON.parse(localStorage.getItem("fitguide_suggestions")) || [];
+            savedSuggestions.push({ type, text, date: new Date().toLocaleString() });
+
+            localStorage.setItem("fitguide_suggestions", JSON.stringify(savedSuggestions));
+
+            suggestionForm.reset();
+            if (suggestionSuccess) {
+                suggestionSuccess.classList.remove("hidden");
+                setTimeout(() => {
+                    suggestionSuccess.classList.add("hidden");
+                }, 4000);
+            }
         });
     }
 
-    // 3. EXERCISE RATINGS CARD (Card Derecha)
-    const ratingListContainer = document.getElementById("exercise-rating-list") || document.getElementById("exerciseRatingList");
+    // 3. EXERCISE RATINGS
+    const ratingListContainer = document.getElementById("exerciseRatingList");
     const ratingSearchInput = document.getElementById("ratingSearchInput");
 
-    // Base de datos de calificaciones locales (Simulada/Persistida)
     let communityRatings = JSON.parse(localStorage.getItem("fitguide_community_ratings")) || {};
 
-    // Calificaciones base fijas de la página (Official Page Rating)
     const officialRatings = {
         1: 4.8, 2: 4.7, 3: 4.6, 4: 4.5, 5: 4.8,
         6: 4.4, 7: 4.2, 8: 4.1, 9: 4.6, 10: 4.3,
@@ -44,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!ratingListContainer) return;
         ratingListContainer.innerHTML = "";
 
-        // Verificación de disponibilidad de array exercises de exercises.js
         const exerciseData = (typeof exercises !== "undefined") ? exercises : [];
 
         const filtered = exerciseData.filter(ex => 
@@ -113,14 +120,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderRatingList();
 
-    // 4. PUBLIC COMMENTS FEED (Card Inferior)
+    // 4. COMENTARIOS CON ESTILO ANIME / FORO HORIZONTAL
     const publicCommentForm = document.getElementById("publicCommentForm");
     const commentsFeed = document.getElementById("commentsFeed");
 
-    // Comentarios iniciales por defecto
     const defaultComments = [
-        { name: "Carlos M.", date: "2026-03-20", text: "Great library! The biomechanics section helped me improve my squat depth." },
-        { name: "Andrea P.", date: "2026-03-21", text: "Very clear descriptions and execution steps. Would love to see core exercises added next!" }
+        { id: 1, name: "Katm", date: "hace 1 año", text: "recien el 14 pq me fui a dormir", likes: 1 },
+        { id: 2, name: "Screened", date: "hace 6 meses", text: "Menuda obra de arte", likes: 0 }
     ];
 
     let commentsList = JSON.parse(localStorage.getItem("fitguide_public_comments")) || defaultComments;
@@ -130,15 +136,31 @@ document.addEventListener("DOMContentLoaded", () => {
         commentsFeed.innerHTML = "";
 
         commentsList.forEach(item => {
+            const initial = item.name ? item.name.charAt(0).toUpperCase() : "U";
+            
             const card = document.createElement("article");
-            card.className = "comment-card";
+            card.className = "anime-comment-card";
             card.innerHTML = `
-                <div class="comment-header">
-                    <span>${item.name}</span>
-                    <span class="comment-date">${item.date}</span>
+                <div class="anime-avatar">${initial}</div>
+                <div class="anime-comment-content">
+                    <div class="anime-comment-meta">
+                        <span class="anime-user-name">${item.name}</span>
+                        <span class="anime-time">${item.date}</span>
+                    </div>
+                    <div class="anime-text">${item.text}</div>
+                    <div class="anime-actions">
+                        <button class="like-btn" data-id="${item.id}">👍 <span>${item.likes || 0}</span></button>
+                    </div>
                 </div>
-                <div class="comment-body">${item.text}</div>
             `;
+
+            const likeBtn = card.querySelector(".like-btn");
+            likeBtn.addEventListener("click", () => {
+                item.likes = (item.likes || 0) + 1;
+                localStorage.setItem("fitguide_public_comments", JSON.stringify(commentsList));
+                renderComments();
+            });
+
             commentsFeed.appendChild(card);
         });
     }
@@ -151,9 +173,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const commentInput = document.getElementById("userComment");
 
             const newComment = {
+                id: Date.now(),
                 name: nameInput.value.trim(),
-                date: new Date().toISOString().split("T")[0],
-                text: commentInput.value.trim()
+                date: "hace un momento",
+                text: commentInput.value.trim(),
+                likes: 0
             };
 
             commentsList.unshift(newComment);

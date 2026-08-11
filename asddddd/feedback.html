@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/feedback.css">
-    <!-- Se incluye exercises.js previamente para acceder al array 'exercises' -->
     <script src="scripts/exercises.js" defer></script>
     <script src="scripts/feedback.js" defer></script>
 </head>
@@ -28,55 +27,56 @@
     <main class="feedback-layout">
         <section class="feedback-hero-full">
             <h1>FitGuide Community Hub</h1>
-            <p>Rate our exercises, submit quick recommendations, or leave a public comment for the community.</p>
+            <p>Rate our exercises, submit suggestions, or post comments for the community.</p>
         </section>
 
-        <!-- Grilla superior: Dos cards en paralelo -->
+        <!-- Grilla Superior: 2 Cards -->
         <div class="top-cards-grid">
             
-            <!-- Card Izquierda: Sugerencias Anónimas/Rápidas -->
+            <!-- Card Izquierda: Sugerencias Privadas -->
             <article class="side-card recommendation-card">
                 <h2>Quick Suggestions</h2>
-                <p>Do you have a new exercise idea or a recommendation to improve the site?</p>
+                <p>Have an exercise idea or site improvement?</p>
+                
                 <form id="suggestionForm">
                     <div class="form-group">
-                        <label for="suggestionType">Type</label>
+                        <label for="suggestionType">Topic</label>
                         <select id="suggestionType" required>
-                            <option value="exercise">New Exercise Suggestion</option>
-                            <option value="feature">Site Improvement</option>
+                            <option value="Exercise Idea">Exercise Idea</option>
+                            <option value="Site Improvement">Site Improvement</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="suggestionText">Your Idea</label>
-                        <textarea id="suggestionText" rows="6" placeholder="Share your exercise or improvement idea..." required></textarea>
+                        <label for="suggestionText">Your Suggestion</label>
+                        <textarea id="suggestionText" rows="5" placeholder="Share your idea here..." required></textarea>
                     </div>
-                    <button type="submit" class="action-btn">Send Suggestion</button>
-                    <p id="suggestionSuccess" class="form-status hidden">Thank you for your suggestion!</p>
+                    <button type="submit" class="action-btn">Submit Suggestion</button>
+                    <p id="suggestionSuccess" class="form-status hidden">Thank you! Your suggestion has been recorded.</p>
                 </form>
             </article>
 
-            <!-- Card Derecha: Rating de Ejercicios Sincronizado -->
+            <!-- Card Derecha: Rating de Ejercicios -->
             <article class="side-card exercise-rating-card">
                 <h2>Exercise Ratings</h2>
-                <p>Search and rate any exercise from our library.</p>
+                <p>Search and rate exercises from our library.</p>
                 
                 <div class="search-box">
                     <input type="text" id="ratingSearchInput" placeholder="Search exercise (e.g. Bench, Squat)...">
                 </div>
 
-                <div id="exerciseRatingList" class="exercise-rating-list">
-                    <!-- Contenido renderizado dinámicamente desde JS -->
+                <div id="exerciseRatingList" class="scrollable-feed">
+                    <!-- Contenido dinamico generado desde JS -->
                 </div>
             </article>
 
         </div>
 
-        <!-- Card Inferior: Muro de Comentarios Públicos -->
-        <section class="public-comments-section">
+        <!-- Sección Inferior: Comentarios con Estilo Anime / Foro -->
+        <section class="public-comments-fullwidth">
             <h2>Public Community Comments</h2>
-            <p>Leave a comment for all visitors to see.</p>
+            <p>Leave a public comment for all visitors to see.</p>
 
-            <form id="publicCommentForm" class="comment-form">
+            <form id="publicCommentForm" class="comment-box-clean">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="userName">Name</label>
@@ -88,16 +88,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="userComment">Comment</label>
-                    <textarea id="userComment" rows="3" placeholder="Write a comment for the community..." required></textarea>
+                    <textarea id="userComment" rows="3" placeholder="Escribe tu comentario..." required></textarea>
                 </div>
-                <button type="submit" class="action-btn">Post Comment</button>
+                <button type="submit" class="action-btn-post">Post Comment</button>
             </form>
 
-            <hr class="divider">
-
             <div id="commentsFeed" class="comments-feed">
-                <!-- Comentarios del público cargados dinámicamente -->
+                <!-- Comentarios en formato horizontal ancho -->
             </div>
         </section>
     </main>
