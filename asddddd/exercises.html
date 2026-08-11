@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/exercises.css">
-    <script src="scripts/exercises.js" defer ></script>
+    <script src="scripts/exercises.js" defer></script>
 </head>
 <body>
     <header>
@@ -22,55 +22,35 @@
             <a href="feedback.html" class="main-a">Feedback</a>
         </nav>
     </header>
+
     <main class="exercises-container">
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search exercises (e.g. Bench, Squat)...">
-        </div>
-        <section class="filter-section">
-            <h1>Exercise Library</h1>
-            <p>Filter movements by targeted muscle group and equipment:</p>
-            <div class="filter-group category-group">
-                <button class="filter-btn active" data-category="all">All Exercises</button>
-                <button class="filter-btn" data-category="upper">Upper Body</button>
-                <button class="filter-btn" data-category="arms">Arms</button>
-                <button class="filter-btn" data-category="lower">Lower Body</button>
-            </div>
-                <div class="filter-group equipment-group">
-                <button class="filter-btn active" data-equipment="all">All Equipment</button>
-                <button class="filter-btn" data-equipment="barbell">Barbell</button>
-                <button class="filter-btn" data-equipment="dumbbell">Dumbbell</button>
-                <button class="filter-btn" data-equipment="machine">Machine</button>
-            </div>
-        </section>
 
-        <section id="exercise-grid" class="exercise-grid"></section>
-        
-
-        
-        <!-- BANNER TEÓRICO DE BIOMECÁNICA -->
+        <!-- 1. BANNER TEÓRICO DE BIOMECÁNICA (AHORA ARRIBA) -->
         <section class="biomechanics-hero">
             <div class="biomechanics-overlay">
-                <h2>General Biomechanics Principles</h2>
-                <p class="hero-subtitle">Master the mechanics behind effective hypertrophy,
-                     optimal joint alignment, and smart exercise sequencing.</p>
-                <div class="bio-grid">
-            <!-- 1. Movement Patterns -->
-
+                <div class="biomechanics-header">
+                    <h2>General Biomechanics Principles</h2>
+                    <button id="toggle-bio-btn" class="bio-toggle-btn">Hide Guide ▲</button>
+                </div>
+                <p class="hero-subtitle">Master the mechanics behind effective hypertrophy, optimal joint alignment, and smart exercise sequencing.</p>
+                
+                <div id="bio-content" class="bio-grid">
+                    <!-- 1. Movement Patterns -->
                     <div class="bio-card">
                         <h3>1. Movement Patterns (Push / Pull / Legs)</h3>
                         <ul>
                             <li><strong>Push:</strong> Movements pushing load away from the body. Targets anterior chain (Chest, Front Delts, Triceps).</li>
                             <li><strong>Pull:</strong> Movements pulling load toward the body. Targets posterior chain (Lats, Traps, Rhomboids, Rear Delts, Biceps).</li>
                             <li><strong>Legs (Knee vs. Hip Dominant):</strong> 
-                            <ul>
-                                <li><em>Knee-Dominant:</em> High knee flexion focusing on Quads (e.g., Squats, Leg Press).</li>
-                                <li><em>Hip-Dominant:</em> Hip hinge movement focusing on Glutes & Hamstrings (e.g., RDLs, Hip Thrusts).</li>
-                            </ul>
+                                <ul>
+                                    <li><em>Knee-Dominant:</em> High knee flexion focusing on Quads (e.g., Squats, Leg Press).</li>
+                                    <li><em>Hip-Dominant:</em> Hip hinge movement focusing on Glutes & Hamstrings (e.g., RDLs, Hip Thrusts).</li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
 
-            <!-- 2. Muscle Roles -->
+                    <!-- 2. Muscle Roles -->
                     <div class="bio-card">
                         <h3>2. Muscle Roles & Joint Control</h3>
                         <ul>
@@ -80,7 +60,7 @@
                         </ul>
                     </div>
 
-            <!-- 3. Contraction Phases -->
+                    <!-- 3. Contraction Phases -->
                     <div class="bio-card">
                         <h3>3. Phases of Muscle Contraction</h3>
                         <ul>
@@ -90,7 +70,7 @@
                         </ul>
                     </div>
 
-            <!-- 4. Compound vs Isolation -->
+                    <!-- 4. Compound vs Isolation -->
                     <div class="bio-card">
                         <h3>4. Compound vs. Isolation (Workout Order)</h3>
                         <ul>
@@ -99,15 +79,41 @@
                         </ul>
                     </div>
 
-            <!-- 5. Line of Force -->
-                    <div class="bio-card full-width">
+                    <!-- 5. Line of Force -->
+                    <div class="bio-card">
                         <h3>5. Alignment & Line of Force</h3>
                         <p>Muscle fibers recruit optimally when resistance direction aligns with fiber direction. Adjusting working angles (e.g., 30° incline bench for Upper Chest) maximizes target muscle engagement and reduces joint stress.</p>
                     </div>
                 </div>
             </div>
-        </section> 
+        </section>
+
+        <!-- 2. BÚSQUEDA Y BIBLIOTECA DE EJERCICIOS (ABAJO) -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search exercises (e.g. Bench, Squat)...">
+        </div>
+
+        <section class="filter-section">
+            <h1>Exercise Library</h1>
+            <p>Filter movements by targeted muscle group and equipment:</p>
+            <div class="filter-group category-group">
+                <button class="filter-btn active" data-category="all">All Exercises</button>
+                <button class="filter-btn" data-category="upper">Upper Body</button>
+                <button class="filter-btn" data-category="arms">Arms</button>
+                <button class="filter-btn" data-category="lower">Lower Body</button>
+            </div>
+            <div class="filter-group equipment-group">
+                <button class="filter-btn active" data-equipment="all">All Equipment</button>
+                <button class="filter-btn" data-equipment="barbell">Barbell</button>
+                <button class="filter-btn" data-equipment="dumbbell">Dumbbell</button>
+                <button class="filter-btn" data-equipment="machine">Machine</button>
+            </div>
+        </section>
+
+        <section id="exercise-grid" class="exercise-grid"></section>
+
     </main>
+
     <footer>
         <p> <span id="currentyear"></span> ©️ Daniel Reyes - Venezuela </p>  
         <p id="lastModified"></p>

@@ -616,7 +616,7 @@ function displayExercises(items) {
 
         header.addEventListener("click", () => {
             const isOpen = body.classList.toggle("open");
-            icon.textContent = isOpen ? "−" : "+";
+            icon.textContent = isOpen ? "-" : "+";
         });
 
         grid.appendChild(card);
@@ -669,4 +669,19 @@ document.addEventListener("DOMContentLoaded", () => {
             applyFilters();
         });
     });
+
+    const toggleBioBtn = document.getElementById("toggle-bio-btn");
+    const bioContent = document.getElementById("bio-content");
+
+    if (toggleBioBtn && bioContent) {
+        toggleBioBtn.addEventListener("click", () => {
+            if (bioContent.style.display === "none") {
+                bioContent.style.display = "flex";
+                toggleBioBtn.textContent = "Hide Guide ▲";
+            } else {
+                bioContent.style.display = "none";
+                toggleBioBtn.textContent = "Show Guide ▼";
+            }
+        });
+    }
 });
