@@ -16,12 +16,13 @@ header{
     padding-top: 10px;
     background-color: var(--primary-color);
 }
-#nav-title{
+#nav-title {
     display: block;
     margin: 10px 0px;
     text-align: center;
-    color: var(--text-color);
-    font-size: 18px;
+    color: var(--text-color2);
+    font-size: 1.125rem;
+    font-weight: 700;
 }
 .main-n {
     display: flex;

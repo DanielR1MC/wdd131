@@ -212,6 +212,22 @@
     color: #cbd5e1;
     font-size: 0.95rem;
 }
+.biomechanics-info {
+    margin: 10px 0;
+    background: #f8faf9;
+    padding: 10px;
+    border-radius: 6px;
+}
+.biomechanics-info p {
+    margin-bottom: 4px;
+}
+.biomechanics-info p.joint-action {
+    margin-bottom: 0;
+}
+.primary-mhh {
+    color: var(--primary-color);
+    font-weight: bold;
+}
 .bio-grid {
     display: flex;
     flex-direction: column;

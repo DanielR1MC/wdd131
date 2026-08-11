@@ -598,10 +598,10 @@ function displayExercises(items) {
             </div>
             <div class="ex-body">
                 <p><strong>Description:</strong> ${ex.description}</p>
-                <div class="biomechanics-info" style="margin: 10px 0; background: #f8faf9; padding: 10px; border-radius: 6px;">
-                    <p style="margin-bottom: 4px;"><strong>Primary Muscle:</strong> <span style="color: #2B5748; font-weight: bold;">${ex.primaryMuscle}</span></p>
-                    <p style="margin-bottom: 4px;"><strong>Secondary Muscles:</strong> ${ex.secondaryMuscles.join(", ")}</p>
-                    <p style="margin-bottom: 0;"><strong>Joint Action:</strong> <em>${ex.jointAction}</em></p>
+                <div class="biomechanics-info">
+                    <p><strong>Primary Muscle:</strong> <span class="primary-mhh">${ex.primaryMuscle}</span></p>
+                    <p><strong>Secondary Muscles:</strong> ${ex.secondaryMuscles.join(", ")}</p>
+                    <p class="joint-action"><strong>Joint Action:</strong> <em>${ex.jointAction}</em></p>
                 </div>
                 <strong>Execution Steps:</strong>
                 <ul>
@@ -670,8 +670,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
-
     const tabBtns = document.querySelectorAll(".tab-btn");
     const tabPanels = document.querySelectorAll(".tab-panel");
 
@@ -686,8 +684,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (targetPanel) targetPanel.classList.add("active");
         });
     });
-
-
 
     const toggleBioBtn = document.getElementById("toggle-bio-btn");
     const bioContent = document.getElementById("bio-content");
@@ -705,7 +701,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 toggleBioBtn.classList.add("collapsed");
                 toggleBioBtn.textContent = "Show Guide ▼";
 
-                // Reinicia a la pestaña 1 al cerrar la guía
                 tabBtns.forEach(b => b.classList.remove("active"));
                 tabPanels.forEach(p => p.classList.remove("active"));
 
