@@ -24,7 +24,8 @@ const exercises = [
             "Grip the barbell slightly wider than shoulder-width apart.",
             "Lower the bar under control to the mid-chest level.",
             "Press the bar explosively upward until your arms are fully extended."
-        ]
+        ],
+        link: ""
     },
     {
         id: 2,
@@ -43,7 +44,8 @@ const exercises = [
             "Grip the barbell with an overhand or underhand grip.",
             "Pull the bar toward your lower abdomen while contracting your shoulder blades.",
             "Lower the weight back down while maintaining muscle tension."
-        ]
+        ],
+        link: ""
     },
     {
         id: 3,
@@ -62,7 +64,8 @@ const exercises = [
             "Brace your core and glutes to stabilize your spine.",
             "Press the bar vertically overhead until your elbows lock out.",
             "Lower the bar under control back to the starting position."
-        ]
+        ],
+        link: ""
     },
     {
         id: 4,
@@ -81,7 +84,8 @@ const exercises = [
             "Grip the bar with a wide overhand grip.",
             "Pull the bar down toward your upper chest while depressing your shoulder blades.",
             "Slowly return the bar to the top for a full lat stretch."
-        ]
+        ],
+        link: ""
     },
     {
         id: 5,
@@ -100,7 +104,8 @@ const exercises = [
             "Bring the dumbbells up to shoulder level.",
             "Press upward, bringing the weights slightly closer together at the top.",
             "Lower the dumbbells while flaring elbows slightly to feel a deep chest stretch."
-        ]
+        ],
+        link: ""
     },
     {
         id: 6,
@@ -119,7 +124,8 @@ const exercises = [
             "Pull the attachment toward your abdomen.",
             "Squeeze your shoulder blades together at peak contraction.",
             "Return to the start position while extending your arms fully."
-        ]
+        ],
+        link: ""
     },
     {
         id: 7,
@@ -137,7 +143,8 @@ const exercises = [
             "Hold dumbbells at your sides with a slight bend in your elbows.",
             "Raise your arms out to the sides until parallel to the floor.",
             "Control the weight on the way down without swinging."
-        ]
+        ],
+        link: ""
     },
     {
         id: 8,
@@ -156,7 +163,8 @@ const exercises = [
             "Grip the handles and bring your arms together in front of your chest.",
             "Pause for a second at the center to squeeze the pectorals.",
             "Slowly open your arms back up to stretch the chest."
-        ]
+        ],
+        link: ""
     },
     {
         id: 9,
@@ -175,7 +183,8 @@ const exercises = [
             "Hold a dumbbell in the opposite hand hanging straight down.",
             "Pull the dumbbell up toward your hip, driving back with your elbow.",
             "Lower the weight back down to achieve a full stretch."
-        ]
+        ],
+        link: ""
     },
     {
         id: 10,
@@ -193,7 +202,8 @@ const exercises = [
             "Adjust the seat height so handles align with your shoulder level.",
             "Press upward until your arms are extended without locking out elbows.",
             "Lower the handles slowly back to shoulder height."
-        ]
+        ],
+        link: ""
     },
 
     // ================= ARMS (11 - 20) =================
@@ -213,7 +223,8 @@ const exercises = [
             "Stand tall with your elbows tucked close to your torso.",
             "Flex your elbows to curl the barbell up toward chest level.",
             "Squeeze the biceps at the top and lower under control."
-        ]
+        ],
+        link: ""
     },
     {
         id: 12,
@@ -231,7 +242,8 @@ const exercises = [
             "Sit back on an incline bench (45°–60°) letting your arms hang down.",
             "Keep your upper arms stationary and curl the dumbbells up.",
             "Lower slowly until you reach a full stretch at the bottom."
-        ]
+        ],
+        link: ""
     },
     {
         id: 13,
@@ -249,7 +261,8 @@ const exercises = [
             "Rest your armpits comfortably over the pad edge.",
             "Flex your arms to pull the resistance toward your face.",
             "Lower with controlled tempo until your arms are nearly extended."
-        ]
+        ],
+        link: ""
     },
     {
         id: 14,
@@ -267,7 +280,8 @@ const exercises = [
             "Hold dumbbells with your palms facing each other.",
             "Curl the weights up without rotating your wrists.",
             "Squeeze at the top and lower in a controlled manner."
-        ]
+        ],
+        link: ""
     },
     {
         id: 15,
@@ -285,7 +299,8 @@ const exercises = [
             "Attach a rope to the lowest pulley setting.",
             "Curl the rope up, spreading your wrists slightly apart at the top.",
             "Resist the pull of the cable as you lower back down."
-        ]
+        ],
+        link: ""
     },
     {
         id: 16,
@@ -303,7 +318,8 @@ const exercises = [
             "Lie on the bench and grip the bar at shoulder-width.",
             "Lower the bar to your lower chest while keeping your elbows close to your torso.",
             "Press straight up, focusing drive through the triceps."
-        ]
+        ],
+        link: ""
     },
     {
         id: 17,
@@ -321,7 +337,8 @@ const exercises = [
             "Lie on a flat bench holding an EZ-bar above your chest.",
             "Bend only at the elbows to lower the bar toward your forehead.",
             "Extend your elbows back to return to the vertical position."
-        ]
+        ],
+        link: ""
     },
     {
         id: 18,
@@ -340,7 +357,8 @@ const exercises = [
             "Keep your elbows pinned to your sides.",
             "Push the attachment down until your arms fully extend.",
             "Allow the bar to rise under control."
-        ]
+        ],
+        link: ""
     },
     {
         id: 19,
@@ -358,7 +376,8 @@ const exercises = [
             "Hold a dumbbell vertically behind your head with both hands.",
             "Lower the weight behind your neck by bending your elbows.",
             "Extend your elbows to press the weight back overhead."
-        ]
+        ],
+        link: ""
     },
     {
         id: 20,
@@ -376,7 +395,8 @@ const exercises = [
             "Attach a rope to a mid-level pulley and face away from the machine.",
             "Pull the rope behind your head with elbows bent.",
             "Extend your arms forward and up until fully locked out."
-        ]
+        ],
+        link: ""
     },
     
     // ================= LOWER BODY  LIGHT WEIGHT, YEAAAH BUDDY 🗣️🗣️🔥 (21 - 30) =================
@@ -397,7 +417,8 @@ const exercises = [
             "Descend by bending knees and flexing hips simultaneously.",
             "Squat down until thighs are parallel or below parallel to the floor.",
             "Drive through mid-foot to return to a standing position."
-        ]
+        ],
+        link: ""
     },
     {
         id: 22,
@@ -415,7 +436,8 @@ const exercises = [
             "Hold the bar at hip height with knees soft and slightly bent.",
             "Push your hips back as the bar glides down close to your legs.",
             "Feel the hamstring stretch and drive hips forward to stand tall."
-        ]
+        ],
+        link: ""
     },
     {
         id: 23,
@@ -434,7 +456,8 @@ const exercises = [
             "Drive through your heels to extend your hips toward the ceiling.",
             "Squeeze your glutes tightly at the top in full lockout.",
             "Lower hips back down under control."
-        ]
+        ],
+        link: ""
     },
     {
         id: 24,
@@ -452,7 +475,8 @@ const exercises = [
             "Place feet shoulder-width apart on the footplate.",
             "Release safety catches and lower the plate to a 90-degree knee bend.",
             "Press the sled up smoothly without locking out knees hard."
-        ]
+        ],
+        link: ""
     },
     {
         id: 25,
@@ -470,7 +494,8 @@ const exercises = [
             "Elevate your rear foot on a flat bench behind you.",
             "Hold dumbbells at sides and descend until rear knee nears the floor.",
             "Drive through the front heel to return to standing."
-        ]
+        ],
+        link: ""
     },
     {
         id: 26,
@@ -488,7 +513,8 @@ const exercises = [
             "Adjust the machine pad so it rests against your lower shins.",
             "Extend your legs fully upward until knees lock softly.",
             "Pause for a second at top and lower under control."
-        ]
+        ],
+        link: ""
     },
     {
         id: 27,
@@ -506,7 +532,8 @@ const exercises = [
             "Sit with thigh pad locked tightly over your upper legs.",
             "Flex knees to pull the roller pad down and back.",
             "Slowly return to start position under continuous tension."
-        ]
+        ],
+        link: ""
     },
     {
         id: 28,
@@ -524,7 +551,8 @@ const exercises = [
             "Hold a dumbbell vertically close against your chest.",
             "Squat down deep while keeping your torso upright.",
             "Push through the floor to stand back up."
-        ]
+        ],
+        link: ""
     },
     {
         id: 29,
@@ -542,7 +570,8 @@ const exercises = [
             "Position back flat against pad with shoulders under supports.",
             "Lower weight deep into knees as far as your mobility allows.",
             "Drive through entire foot surface to extend back up."
-        ]
+        ],
+        link: ""
     },
     {
         id: 30,
@@ -560,7 +589,8 @@ const exercises = [
             "Place balls of feet on platform edge.",
             "Lower heels down deep to stretch lower legs.",
             "Rise up onto toes with a strong top contraction."
-        ]
+        ],
+        link: ""
     }
 ];
 
@@ -614,6 +644,9 @@ function displayExercises(items) {
                 <ul>
                     ${ex.steps.map(step => `<li>${step}</li>`).join('')}
                 </ul>
+                <div class="ex-action">
+                    <a href="${ex.link}" target="_blank" rel="noopener noreferrer" class="ex-btn">Ver Ejercicio</a>
+                </div>
             </div>
         `;
 
