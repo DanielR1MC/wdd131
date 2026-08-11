@@ -24,41 +24,49 @@
     --avatar-bg: #cbd5e1;
     --avatar-text: #475569;
 }
-h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+
+h1, h2, h3 { 
+    font-family: 'Montserrat', sans-serif; 
+}
+
 header {
-    padding-top: 10px;
+    padding-top: 15px;
     background-color: var(--primary-color);
+    border-bottom: 3px solid var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 #nav-title {
     display: block;
-    margin: 10px 0px;
+    margin-bottom: 12px;
     text-align: center;
     color: var(--white);
-    font-size: 1.125rem;
+    font-size: 1.3rem;
     font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .main-n {
     display: flex;
-    justify-content: space-around;
-    background-color: var(--secondary-color);
+    justify-content: center;
+    gap: 10px;
+    background-color: #1e3e33;
+    padding: 6px 0;
 }
 
 .main-a {
-    padding: 1rem;
+    padding: 0.6rem 1.4rem;
     text-decoration: none;
-    margin: 0px 5px;
-    font-size: 17px;
+    font-size: 0.95rem;
     font-weight: 700;
-    color: var(--text-color);
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
+    color: #ffffff;
+    border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
 .main-a:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
 
 body {
@@ -67,10 +75,37 @@ body {
 }
 
 footer {
-    background-color: var(--primary-color);
-    padding: 34px;
+    background-color: #183329;
+    padding: 25px 20px;
     text-align: center;
-    color: var(--white);
+    color: #e2e8f0;
+    border-top: 4px solid var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.footer-nav {
+    margin-top: 4px;
+}
+
+.siteplan-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+}
+
+.siteplan-link:hover {
+    text-decoration: underline;
+    opacity: 0.85;
 }
 
 #lastModified {

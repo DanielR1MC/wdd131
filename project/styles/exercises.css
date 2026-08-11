@@ -74,7 +74,6 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-
 .ex-header {
     padding: 18px 20px;
     display: flex;
@@ -102,7 +101,6 @@
     font-weight: bold;
     color: var(--primary-color);
 }
-
 
 .ex-body {
     display: none;
@@ -166,9 +164,6 @@
     background-color: #d32f2f;
 }
 
-
-
-
 .biomechanics-hero {
     background-image: url('../images/hero-image.jpg'); 
     background-size: cover;
@@ -180,8 +175,8 @@
 }
 
 .biomechanics-overlay {
-    background: rgba(20, 50, 40, 0.90);
-    color: var(--text-color2);
+    background: rgba(15, 38, 30, 0.92);
+    color: #ffffff;
     padding: 35px 25px;
 }
 .biomechanics-header {
@@ -193,8 +188,9 @@
 }
 .biomechanics-overlay h2 {
     font-size: 1.8rem;
-    color: var(--text-color2);
+    color: #ffffff;
     margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 .bio-toggle-btn {
     background: rgba(255, 255, 255, 0.15);
@@ -214,8 +210,8 @@
 .hero-subtitle {
     text-align: center;
     max-width: 750px;
-    margin: 0 auto 30px auto;
-    color: #cbd5e1;
+    margin: 10px auto 30px auto;
+    color: #e2e8f0;
     font-size: 0.95rem;
 }
 .biomechanics-info {
@@ -267,20 +263,18 @@
     margin-bottom: 10px;
     line-height: 1.5;
 }
-.bio-card ul li:last-child {
-    margin-bottom: 0;
-}
+.bio-card ul li:last-child {margin-bottom: 0;}
 .bio-card ul li ul {
     padding-left: 20px;
     margin-top: 6px;
 }
+
 .bio-card p {
     font-size: 0.92rem;
     color: #e2e8f0;
     line-height: 1.5;
     margin: 0;
 }
-
 .bio-container {
     max-width: 900px;
     margin: 0 auto;
@@ -289,7 +283,6 @@
     align-items: center;
     width: 100%;
 }
-
 .bio-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -297,6 +290,7 @@
     justify-content: center;
     margin-bottom: 15px;
 }
+
 
 .tab-btn {
     background: rgba(255, 255, 255, 0.08);
@@ -309,18 +303,17 @@
     font-weight: 600;
     transition: all 0.2s ease;
 }
-
 .tab-btn:hover {
     background: rgba(163, 230, 53, 0.15);
     border-color: #a3e635;
     color: #a3e635;
 }
-
 .tab-btn.active {
     background: #a3e635;
     color: #143228;
     border-color: #a3e635;
 }
+
 
 .bio-tab-content {
     background: rgba(255, 255, 255, 0.07);
@@ -331,14 +324,12 @@
     min-height: 140px;
 }
 
+
 .tab-panel {
     display: none;
     text-align: left;
 }
-
-.tab-panel.active {
-    display: block;
-}
+.tab-panel.active {display: block;}
 
 .tab-panel h3 {
     font-size: 1.1rem;
@@ -347,7 +338,6 @@
     border-bottom: 1px solid rgba(163, 230, 53, 0.3);
     padding-bottom: 6px;
 }
-
 .tab-panel ul {
     list-style: none;
     padding-left: 0;
@@ -355,18 +345,17 @@
     font-size: 0.92rem;
     color: #e2e8f0;
 }
-
 .tab-panel ul li {
     margin-bottom: 8px;
     line-height: 1.5;
 }
-
 .tab-panel p {
     font-size: 0.92rem;
     color: #e2e8f0;
     line-height: 1.5;
     margin: 0;
 }
+
 .bio-container.hidden {
     display: none;
 }
