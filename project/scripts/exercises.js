@@ -6,7 +6,7 @@ if (currentYearElem) currentYearElem.textContent = currentYear;
 if (lastModifiedElem) lastModifiedElem.innerHTML = document.lastModified;
 
 const exercises = [
-    // ================= UPPER BODY (1 - 10) =================
+    // ================= UPPER BODY   CHEST DAAAAYY SHOW YOU OFF 🗣️ TONIGHT IM GONNA SHOW YOU OFF 🗣️🗣️(1 - 10) =================
     {
         id: 1,
         name: "Barbell Bench Press",
@@ -96,7 +96,7 @@ const exercises = [
         difficulty: "Intermediate",
         description: "Targets upper chest muscle fibers with an extended range of motion.",
         steps: [
-            "Set an incline bench to 30–45 degrees.",
+            "Set an incline bench to 30-45 degrees.",
             "Bring the dumbbells up to shoulder level.",
             "Press upward, bringing the weights slightly closer together at the top.",
             "Lower the dumbbells while flaring elbows slightly to feel a deep chest stretch."
@@ -378,8 +378,8 @@ const exercises = [
             "Extend your arms forward and up until fully locked out."
         ]
     },
-
-    // ================= LOWER BODY (21 - 30) =================
+    
+    // ================= LOWER BODY  LIGHT WEIGHT, YEAAAH BUDDY 🗣️🗣️🔥 (21 - 30) =================
     {
         id: 21,
         name: "Barbell Back Squat",
