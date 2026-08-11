@@ -670,7 +670,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ================= PESTAÑAS (TABS) BIOMECÁNICA =================
+
+
     const tabBtns = document.querySelectorAll(".tab-btn");
     const tabPanels = document.querySelectorAll(".tab-panel");
 
@@ -686,7 +687,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ================= DESPLEGABLE (TOGGLE) GUÍA =================
+
+
     const toggleBioBtn = document.getElementById("toggle-bio-btn");
     const bioContent = document.getElementById("bio-content");
 
