@@ -644,8 +644,8 @@ function displayExercises(items) {
                 <ul>
                     ${ex.steps.map(step => `<li>${step}</li>`).join('')}
                 </ul>
-                <div class="ex-action" style="display: flex; justify-content: flex-end; margin-top: 10px;">
-                    <a href="${ex.link}" target="_blank" rel="noopener noreferrer" class="ex-btn" style="font-size: 0.8rem; padding: 4px 10px;">View Exercise</a>
+                <div class="ex-action">
+                    <a href="${ex.link}" target="_blank" rel="noopener noreferrer" class="ex-btn">View Exercise</a>
                 </div>
             </div>
         `;

@@ -371,6 +371,20 @@
 }
 
 
+.ex-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.ex-btn {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
 
 @media (max-width: 730px) {
     .exercise-grid {
