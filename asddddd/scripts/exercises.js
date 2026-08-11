@@ -659,6 +659,19 @@ document.addEventListener("DOMContentLoaded", () => {
             applyFilters();
         });
     });
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            tabBtns.forEach(b => b.classList.remove("active"));
+            tabPanels.forEach(p => p.classList.remove("active"));
+
+            btn.classList.add("active");
+            const selectedTab = btn.getAttribute("data-tab");
+            document.getElementById(selectedTab).classList.add("active");
+        });
+    });
 
     const equipmentBtns = document.querySelectorAll(".equipment-group .filter-btn");
     equipmentBtns.forEach(btn => {

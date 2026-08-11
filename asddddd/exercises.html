@@ -24,19 +24,27 @@
     </header>
 
     <main class="exercises-container">
-
-        <!-- 1. BANNER TEÓRICO DE BIOMECÁNICA (AHORA ARRIBA) -->
         <section class="biomechanics-hero">
             <div class="biomechanics-overlay">
                 <div class="biomechanics-header">
                     <h2>General Biomechanics Principles</h2>
                     <button id="toggle-bio-btn" class="bio-toggle-btn">Hide Guide ▲</button>
                 </div>
-                <p class="hero-subtitle">Master the mechanics behind effective hypertrophy, optimal joint alignment, and smart exercise sequencing.</p>
-                
-                <div id="bio-content" class="bio-grid">
-                    <!-- 1. Movement Patterns -->
-                    <div class="bio-card">
+
+                <p class="hero-subtitle">Master the mechanics behind effective hypertrophy,
+                     optimal joint alignment, and smart exercise sequencing.</p>
+
+                <div id="bio-content" class="bio-container">
+                    <div class="bio-tabs">
+                        <button class="tab-btn active" data-tab="tab-1">1. Movement Patterns</button>
+                        <button class="tab-btn" data-tab="tab-2">2. Muscle Roles</button>
+                        <button class="tab-btn" data-tab="tab-3">3. Contraction Phases</button>
+                        <button class="tab-btn" data-tab="tab-4">4. Compound vs Isolation</button>
+                        <button class="tab-btn" data-tab="tab-5">5. Line of Force</button>
+                    </div>
+
+                <div class="bio-tab-content">
+                    <div id="tab-1" class="tab-panel active">
                         <h3>1. Movement Patterns (Push / Pull / Legs)</h3>
                         <ul>
                             <li><strong>Push:</strong> Movements pushing load away from the body. Targets anterior chain (Chest, Front Delts, Triceps).</li>
@@ -50,45 +58,41 @@
                         </ul>
                     </div>
 
-                    <!-- 2. Muscle Roles -->
-                    <div class="bio-card">
-                        <h3>2. Muscle Roles & Joint Control</h3>
-                        <ul>
-                            <li><strong>Agonist (Prime Mover):</strong> The primary muscle responsible for generating force.</li>
-                            <li><strong>Synergist (Assistant):</strong> Muscles supporting the movement and preventing unwanted rotation.</li>
-                            <li><strong>Stabilizer / Antagonist:</strong> Contracts isometrically to maintain posture (e.g., Core in Overhead Press) or stretches to allow smooth joint motion.</li>
-                        </ul>
-                    </div>
+                <div id="tab-2" class="tab-panel">
+                    <h3>2. Muscle Roles & Joint Control</h3>
+                    <ul>
+                        <li><strong>Agonist (Prime Mover):</strong> The primary muscle responsible for generating force.</li>
+                        <li><strong>Synergist (Assistant):</strong> Muscles supporting the movement and preventing unwanted rotation.</li>
+                        <li><strong>Stabilizer / Antagonist:</strong> Contracts isometrically to maintain posture (e.g., Core in Overhead Press) or stretches to allow smooth joint motion.</li>
+                    </ul>
+                </div>
 
-                    <!-- 3. Contraction Phases -->
-                    <div class="bio-card">
-                        <h3>3. Phases of Muscle Contraction</h3>
-                        <ul>
-                            <li><strong>Concentric (Positive Phase):</strong> Muscle shortens under tension to overcome resistance (e.g., pressing the bar up).</li>
-                            <li><strong>Eccentric (Negative Phase):</strong> Muscle lengthens under control. Crucial phase for micro-tears and hypertrophy stimulus.</li>
-                            <li><strong>Isometric:</strong> Force production without joint angle change (e.g., pause at bottom of a squat).</li>
-                        </ul>
-                    </div>
+                <div id="tab-3" class="tab-panel">
+                    <h3>3. Phases of Muscle Contraction</h3>
+                    <ul>
+                        <li><strong>Concentric (Positive Phase):</strong> Muscle shortens under tension to overcome resistance (e.g., pressing the bar up).</li>
+                        <li><strong>Eccentric (Negative Phase):</strong> Muscle lengthens under control. Crucial phase for micro-tears and hypertrophy stimulus.</li>
+                        <li><strong>Isometric:</strong> Force production without joint angle change (e.g., pause at bottom of a squat).</li>
+                    </ul>
+                </div>
 
-                    <!-- 4. Compound vs Isolation -->
-                    <div class="bio-card">
-                        <h3>4. Compound vs. Isolation (Workout Order)</h3>
-                        <ul>
-                            <li><strong>Compound (Multi-Joint):</strong> Involves 2+ joints and large muscle groups. High CNS demand. <em>Place at the start of your workout when energy is peak.</em></li>
-                            <li><strong>Isolation (Single-Joint):</strong> Focuses tension on a specific muscle. <em>Place toward the middle/end to accumulate volume safely.</em></li>
-                        </ul>
-                    </div>
+                <div id="tab-4" class="tab-panel">
+                    <h3>4. Compound vs. Isolation (Workout Order)</h3>
+                    <ul>
+                        <li><strong>Compound (Multi-Joint):</strong> Involves 2+ joints and large muscle groups. High CNS demand. <em>Place at the start of your workout when energy is peak.</em></li>
+                        <li><strong>Isolation (Single-Joint):</strong> Focuses tension on a specific muscle. <em>Place toward the middle/end to accumulate volume safely.</em></li>
+                    </ul>
+                </div>
 
-                    <!-- 5. Line of Force -->
-                    <div class="bio-card">
-                        <h3>5. Alignment & Line of Force</h3>
-                        <p>Muscle fibers recruit optimally when resistance direction aligns with fiber direction. Adjusting working angles (e.g., 30° incline bench for Upper Chest) maximizes target muscle engagement and reduces joint stress.</p>
-                    </div>
+                <div id="tab-5" class="tab-panel">
+                    <h3>5. Alignment & Line of Force</h3>
+                    <p>Muscle fibers recruit optimally when resistance direction aligns with fiber direction. Adjusting working angles (e.g., 30° incline bench for Upper Chest) maximizes target muscle engagement and reduces joint stress.</p>
+                </div>
+                </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. BÚSQUEDA Y BIBLIOTECA DE EJERCICIOS (ABAJO) -->
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search exercises (e.g. Bench, Squat)...">
         </div>
