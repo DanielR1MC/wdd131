@@ -126,7 +126,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const newCount = commData.count + 1;
                 const newScore = Number((((commData.score * commData.count) + val) / newCount).toFixed(1));
 
-                // Guardar en objeto
+
+
+                
                 userRatings[ex.id] = { score: newScore, count: newCount };
                 localStorage.setItem("fitguide_community_ratings", JSON.stringify(userRatings));
 
@@ -163,6 +165,10 @@ document.addEventListener("DOMContentLoaded", () => {
         cmtFeed.innerHTML = "";
 
         commentsData.forEach(item => {
+            if (typeof item.likes !== "number" || isNaN(item.likes)) {
+                item.likes = 0;
+            }
+
             const letter = item.name ? item.name.charAt(0).toUpperCase() : "U";
             
             const card = document.createElement("article");
@@ -183,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const likeBtn = card.querySelector(".btn-like");
             likeBtn.addEventListener("click", () => {
-                item.likes += 1;
+                item.likes = (Number(item.likes) || 0) + 1;
                 localStorage.setItem("fitguide_public_comments", JSON.stringify(commentsData));
                 renderComments();
             });
