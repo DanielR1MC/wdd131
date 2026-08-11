@@ -25,7 +25,7 @@ const exercises = [
             "Lower the bar under control to the mid-chest level.",
             "Press the bar explosively upward until your arms are fully extended."
         ],
-        link: ""
+        link: "https://www.youtube.com/watch?v=rT7DgCr-3pg&t=102s"
     },
     {
         id: 2,
