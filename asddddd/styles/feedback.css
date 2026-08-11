@@ -1,7 +1,226 @@
-:root {
-    --primary-color: #2B5748;
-    --secondary-color: #9CB080;
-    --accent-color: #FFFF00;
-    --text-color: #000000;
-    --text-color2: #fff ; 
+.feedback-layout {
+    max-width: 1100px;
+    margin: 30px auto 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.feedback-hero-full {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.feedback-hero-full h1 {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+}
+
+.feedback-hero-full p {
+    color: #e2e8f0;
+    font-size: 0.95rem;
+}
+
+/* Grilla de dos columnas para las cards laterales */
+.top-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+.side-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.side-card h2, .public-comments-section h2 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+}
+
+.side-card p, .public-comments-section p {
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 0.85rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.search-box input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.search-box input:focus {
+    border-color: var(--primary-color);
+}
+
+.action-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.action-btn:hover {
+    filter: brightness(1.15);
+}
+
+.form-status {
+    color: #2e7d32;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Card Lista con Scroll Interno para los Ejercicios */
+.search-box {
+    margin-bottom: 12px;
+}
+
+.exercise-rating-list {
+    max-height: 320px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 6px;
+}
+
+.rating-item-card {
+    background: #f8faf9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.rating-item-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.ratings-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #444;
+    margin: 6px 0;
+}
+
+.user-vote-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    font-size: 0.82rem;
+}
+
+.star-select {
+    padding: 4px 6px;
+    font-size: 0.82rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Card Inferior (Comentarios Públicos) */
+.public-comments-section {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 20px 0;
+}
+
+.comments-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.comment-card {
+    background: #f8faf9;
+    border-left: 4px solid var(--primary-color);
+    padding: 12px 15px;
+    border-radius: 0 8px 8px 0;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+}
+
+.comment-header .comment-date {
+    color: #888;
+    font-weight: normal;
+    font-size: 0.78rem;
+}
+
+.comment-body {
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .top-cards-grid, .form-row {
+        grid-template-columns: 1fr;
+    }
 }

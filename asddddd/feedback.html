@@ -3,27 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FitGuide - Your comprehensive workout and muscle training reference guide.">
+    <meta name="description" content="FitGuide - Community feedback, exercise ratings, and suggestions.">
     <meta name="author" content="Daniel Reyes">
-    <title>FitGuide | Feedback</title>
+    <title>FitGuide | Community & Feedback</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/feedback.css">
-    <script src="scripts/feedback.js" defer ></script>
+    <!-- Se incluye exercises.js previamente para acceder al array 'exercises' -->
+    <script src="scripts/exercises.js" defer></script>
+    <script src="scripts/feedback.js" defer></script>
 </head>
 <body>
     <header>
-        <span id="nav-title"> FitGuide - Feedback Hub </span>
+        <span id="nav-title"> FitGuide - Community Hub </span>
         <nav class="main-n">
             <a href="index.html" class="main-a">Home</a>
             <a href="exercises.html" class="main-a">Exercises</a>
-            <a href="feedback.html" class="main-a">Feedback</a>
+            <a href="feedback.html" class="main-a active">Feedback</a>
         </nav>
     </header>
 
+    <main class="feedback-layout">
+        <section class="feedback-hero-full">
+            <h1>FitGuide Community Hub</h1>
+            <p>Rate our exercises, submit quick recommendations, or leave a public comment for the community.</p>
+        </section>
 
+        <!-- Grilla superior: Dos cards en paralelo -->
+        <div class="top-cards-grid">
+            
+            <!-- Card Izquierda: Sugerencias Anónimas/Rápidas -->
+            <article class="side-card recommendation-card">
+                <h2>Quick Suggestions</h2>
+                <p>Do you have a new exercise idea or a recommendation to improve the site?</p>
+                <form id="suggestionForm">
+                    <div class="form-group">
+                        <label for="suggestionType">Type</label>
+                        <select id="suggestionType" required>
+                            <option value="exercise">New Exercise Suggestion</option>
+                            <option value="feature">Site Improvement</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="suggestionText">Your Idea</label>
+                        <textarea id="suggestionText" rows="6" placeholder="Share your exercise or improvement idea..." required></textarea>
+                    </div>
+                    <button type="submit" class="action-btn">Send Suggestion</button>
+                    <p id="suggestionSuccess" class="form-status hidden">Thank you for your suggestion!</p>
+                </form>
+            </article>
+
+            <!-- Card Derecha: Rating de Ejercicios Sincronizado -->
+            <article class="side-card exercise-rating-card">
+                <h2>Exercise Ratings</h2>
+                <p>Search and rate any exercise from our library.</p>
+                
+                <div class="search-box">
+                    <input type="text" id="ratingSearchInput" placeholder="Search exercise (e.g. Bench, Squat)...">
+                </div>
+
+                <div id="exerciseRatingList" class="exercise-rating-list">
+                    <!-- Contenido renderizado dinámicamente desde JS -->
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Card Inferior: Muro de Comentarios Públicos -->
+        <section class="public-comments-section">
+            <h2>Public Community Comments</h2>
+            <p>Leave a comment for all visitors to see.</p>
+
+            <form id="publicCommentForm" class="comment-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="userName">Name</label>
+                        <input type="text" id="userName" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">Email</label>
+                        <input type="email" id="userEmail" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="userComment">Comment</label>
+                    <textarea id="userComment" rows="3" placeholder="Write a comment for the community..." required></textarea>
+                </div>
+                <button type="submit" class="action-btn">Post Comment</button>
+            </form>
+
+            <hr class="divider">
+
+            <div id="commentsFeed" class="comments-feed">
+                <!-- Comentarios del público cargados dinámicamente -->
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p> <span id="currentyear"></span> ©️ Daniel Reyes - Venezuela </p>  
