@@ -1,9 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+
+
     const yrElem = document.getElementById("currentyear");
     const modElem = document.getElementById("lastModified");
 
     if (yrElem) yrElem.textContent = new Date().getFullYear();
     if (modElem) modElem.innerHTML = `Last Modified: ${document.lastModified}`;
+
+
 
     const sugForm = document.getElementById("suggestionForm");
     const sugMsg = document.getElementById("suggestionSuccess");
@@ -13,10 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
 
             const type = document.getElementById("suggestionType").value;
-            const text = document.getElementById("suggestionText").value.trim();
+            const text = document.getElementById("suggestionText").value;
 
             const sugList = JSON.parse(localStorage.getItem("fitguide_suggestions")) || [];
-            sugList.push({ type, text, date: new Date().toLocaleString() });
+            sugList.push({ type, text, date: new Date().toLocaleDateString() });
 
             localStorage.setItem("fitguide_suggestions", JSON.stringify(sugList));
 
@@ -31,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    
+
     const ratingBox = document.getElementById("exerciseRatingList");
     const searchInput = document.getElementById("ratingSearchInput");
 
@@ -50,14 +55,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!ratingBox) return;
         ratingBox.innerHTML = "";
 
-        const exList = (typeof exercises !== "undefined") ? exercises : [];
 
-        const filtered = exList.filter(ex => 
+
+        const filtered = exercises.filter(ex => 
             ex.name.toLowerCase().includes(query.toLowerCase().trim())
         );
 
         if (filtered.length === 0) {
-            ratingBox.innerHTML = "<p class=\"no-results-msg\">No exercises found.</p>";
+            ratingBox.innerHTML = "<p class='no-results-msg'>No exercises found.</p>";
             return;
         }
 
@@ -66,53 +71,51 @@ document.addEventListener("DOMContentLoaded", () => {
             card.className = "rating-item-card";
 
             const baseScore = defaultScores[ex.id] || 4.5;
-            const commData = userRatings[ex.id] || { score: baseScore, count: 1 };
+            
+
+
+            const savedRating = userRatings[ex.id] || baseScore;
 
             card.innerHTML = `
                 <h4>${ex.name}</h4>
                 <div class="ratings-display">
-                    <span><strong>Page Rating:</strong> ★ ${baseScore.toFixed(1)}</span>
-                    <span><strong>Community:</strong> ★ ${commData.score.toFixed(1)} (${commData.count})</span>
+                    <span><strong>Page Rating:</strong> ★ ${baseScore}</span>
+                    <span><strong>Community:</strong> ★ ${savedRating}</span>
                 </div>
                 <div class="user-vote-control">
                     <span>Your Rating:</span>
                     <select class="star-select" id="select-${ex.id}">
                         <option value="" disabled selected>Rate</option>
-                        <option value="0.5">0.5 ★</option>
-                        <option value="1.0">1.0 ★</option>
-                        <option value="1.5">1.5 ★</option>
-                        <option value="2.0">2.0 ★</option>
-                        <option value="2.5">2.5 ★</option>
-                        <option value="3.0">3.0 ★</option>
-                        <option value="3.5">3.5 ★</option>
-                        <option value="4.0">4.0 ★</option>
-                        <option value="4.5">4.5 ★</option>
-                        <option value="5.0">5.0 ★</option>
+                        <option value="1">1.0 ★</option>
+                        <option value="2">2.0 ★</option>
+                        <option value="3">3.0 ★</option>
+                        <option value="4">4.0 ★</option>
+                        <option value="5">5.0 ★</option>
                     </select>
                     <button type="button" class="submit-rating-btn" data-id="${ex.id}">Submit Rating</button>
                 </div>
                 <p class="rating-status hidden" id="status-${ex.id}">★ Rating saved!</p>
             `;
 
+
+
             const btnSub = card.querySelector(".submit-rating-btn");
             const selectElem = card.querySelector(".star-select");
 
             btnSub.addEventListener("click", () => {
-                const val = parseFloat(selectElem.value);
+                const val = Number(selectElem.value);
 
-                if (isNaN(val)) {
+                if (!val) {
                     alert("Please select a rating before submitting.");
                     return;
                 }
 
-                const ok = confirm(`Are you sure you want to rate "${ex.name}" with ${val} stars?`);
-                if (!ok) return;
 
-                const curr = userRatings[ex.id] || { score: baseScore, count: 1 };
-                const newCount = curr.count + 1;
-                const newScore = ((curr.score * curr.count) + val) / newCount;
 
-                userRatings[ex.id] = { score: newScore, count: newCount };
+
+                const finalScore = ((baseScore + val) / 2).toFixed(1);
+
+                userRatings[ex.id] = finalScore;
                 localStorage.setItem("fitguide_community_ratings", JSON.stringify(userRatings));
 
                 renderRatingList(searchInput ? searchInput.value : "");
@@ -129,6 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     renderRatingList();
+
+
+
 
     const cmtForm = document.getElementById("publicCommentForm");
     const cmtFeed = document.getElementById("commentsFeed");
@@ -158,14 +164,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <div class="cmt-txt">${item.text}</div>
                     <div class="cmt-actions">
-                        <button class="btn-like" data-id="${item.id}">👍 <span>${item.likes || 0}</span></button>
+                        <button class="btn-like" data-id="${item.id}">👍 <span>${item.likes}</span></button>
                     </div>
                 </div>
             `;
 
             const likeBtn = card.querySelector(".btn-like");
             likeBtn.addEventListener("click", () => {
-                item.likes = (item.likes || 0) + 1;
+                item.likes += 1;
                 localStorage.setItem("fitguide_public_comments", JSON.stringify(commentsData));
                 renderComments();
             });
@@ -178,13 +184,13 @@ document.addEventListener("DOMContentLoaded", () => {
         cmtForm.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const nameVal = document.getElementById("userName").value.trim();
-            const textVal = document.getElementById("userComment").value.trim();
+            const nameVal = document.getElementById("userName").value;
+            const textVal = document.getElementById("userComment").value;
 
             const newCmt = {
                 id: Date.now(),
                 name: nameVal,
-                date: "just now",
+                date: "Today",
                 text: textVal,
                 likes: 0
             };

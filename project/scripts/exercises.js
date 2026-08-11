@@ -6,7 +6,7 @@ if (currentYearElem) currentYearElem.textContent = currentYear;
 if (lastModifiedElem) lastModifiedElem.innerHTML = document.lastModified;
 
 const exercises = [
-    // ================= UPPER BODYYYYY (1 - 10) =================
+    // ================= UPPER BODY (1 - 10) =================
     {
         id: 1,
         name: "Barbell Bench Press",
@@ -196,7 +196,7 @@ const exercises = [
         ]
     },
 
-    // ================= ARMS LIGHT WEIGHT 🗣️ (11 - 20) =================
+    // ================= ARMS (11 - 20) =================
     {
         id: 11,
         name: "Barbell Bicep Curl",
@@ -379,7 +379,7 @@ const exercises = [
         ]
     },
 
-    // ================= LOWER BODY YEAAH BUDDY 🗣️🔥(21 - 30) =================
+    // ================= LOWER BODY (21 - 30) =================
     {
         id: 21,
         name: "Barbell Back Squat",
@@ -566,11 +566,16 @@ const exercises = [
 
 
 
+
 let activeCategory = "all";
 let activeEquipment = "all";
 
+
+
 function displayExercises(items) {
     const grid = document.getElementById("exercise-grid");
+    if (!grid) return;
+    
     grid.innerHTML = "";
 
     if (items.length === 0) {
@@ -614,6 +619,7 @@ function displayExercises(items) {
 
 
 
+
         const header = card.querySelector(".ex-header");
         const body = card.querySelector(".ex-body");
         const icon = card.querySelector(".toggle-icon");
@@ -626,6 +632,7 @@ function displayExercises(items) {
         grid.appendChild(card);
     });
 }
+
 
 
 
@@ -648,16 +655,15 @@ function applyFilters() {
     displayExercises(filtered);
 }
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
     displayExercises(exercises);
-
 
     const searchInput = document.getElementById("searchInput");
     if (searchInput) {
         searchInput.addEventListener("input", applyFilters);
     }
-
-
 
     const categoryBtns = document.querySelectorAll(".category-group .filter-btn");
     categoryBtns.forEach(btn => {
@@ -683,9 +689,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
     const tabBtns = document.querySelectorAll(".tab-btn");
     const tabPanels = document.querySelectorAll(".tab-panel");
+
+
 
     tabBtns.forEach(btn => {
         btn.addEventListener("click", () => {
@@ -700,11 +707,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+
     const toggleBioBtn = document.getElementById("toggle-bio-btn");
     const bioContent = document.getElementById("bio-content");
 
 
-
+    
     if (toggleBioBtn && bioContent) {
         toggleBioBtn.addEventListener("click", () => {
             const isHidden = bioContent.classList.contains("hidden");
