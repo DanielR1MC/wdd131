@@ -1,45 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. FOOTER UPDATES
-    const currentYear = new Date().getFullYear();
-    const currentYearElem = document.getElementById("currentyear");
-    const lastModifiedElem = document.getElementById("lastModified");
+    const yrElem = document.getElementById("currentyear");
+    const modElem = document.getElementById("lastModified");
 
-    if (currentYearElem) currentYearElem.textContent = currentYear;
-    if (lastModifiedElem) lastModifiedElem.innerHTML = document.lastModified;
+    if (yrElem) yrElem.textContent = new Date().getFullYear();
+    if (modElem) modElem.innerHTML = `Last Modified: ${document.lastModified}`;
 
-    // 2. SUGERENCIAS PRIVADAS
-    const suggestionForm = document.getElementById("suggestionForm");
-    const suggestionSuccess = document.getElementById("suggestionSuccess");
+    const sugForm = document.getElementById("suggestionForm");
+    const sugMsg = document.getElementById("suggestionSuccess");
 
-    if (suggestionForm) {
-        suggestionForm.addEventListener("submit", (e) => {
+    if (sugForm) {
+        sugForm.addEventListener("submit", (e) => {
             e.preventDefault();
 
             const type = document.getElementById("suggestionType").value;
             const text = document.getElementById("suggestionText").value.trim();
 
-            const savedSuggestions = JSON.parse(localStorage.getItem("fitguide_suggestions")) || [];
-            savedSuggestions.push({ type, text, date: new Date().toLocaleString() });
+            const sugList = JSON.parse(localStorage.getItem("fitguide_suggestions")) || [];
+            sugList.push({ type, text, date: new Date().toLocaleString() });
 
-            localStorage.setItem("fitguide_suggestions", JSON.stringify(savedSuggestions));
+            localStorage.setItem("fitguide_suggestions", JSON.stringify(sugList));
 
-            suggestionForm.reset();
-            if (suggestionSuccess) {
-                suggestionSuccess.classList.remove("hidden");
+            sugForm.reset();
+            if (sugMsg) {
+                sugMsg.classList.remove("hidden");
                 setTimeout(() => {
-                    suggestionSuccess.classList.add("hidden");
+                    sugMsg.classList.add("hidden");
                 }, 4000);
             }
         });
     }
 
-    // 3. EXERCISE RATINGS
-    const ratingListContainer = document.getElementById("exerciseRatingList");
-    const ratingSearchInput = document.getElementById("ratingSearchInput");
+    const ratingBox = document.getElementById("exerciseRatingList");
+    const searchInput = document.getElementById("ratingSearchInput");
 
-    let communityRatings = JSON.parse(localStorage.getItem("fitguide_community_ratings")) || {};
+    let userRatings = JSON.parse(localStorage.getItem("fitguide_community_ratings")) || {};
 
-    const officialRatings = {
+    const defaultScores = {
         1: 4.8, 2: 4.7, 3: 4.6, 4: 4.5, 5: 4.8,
         6: 4.4, 7: 4.2, 8: 4.1, 9: 4.6, 10: 4.3,
         11: 4.5, 12: 4.6, 13: 4.3, 14: 4.4, 15: 4.2,
@@ -48,156 +44,153 @@ document.addEventListener("DOMContentLoaded", () => {
         26: 4.2, 27: 4.3, 28: 4.4, 29: 4.5, 30: 4.1
     };
 
-    function renderRatingList(filterText = "") {
-    if (!ratingListContainer) return;
-    ratingListContainer.innerHTML = "";
+    function renderRatingList(query = "") {
+        if (!ratingBox) return;
+        ratingBox.innerHTML = "";
 
-    const exerciseData = (typeof exercises !== "undefined") ? exercises : [];
+        const exList = (typeof exercises !== "undefined") ? exercises : [];
 
-    const filtered = exerciseData.filter(ex => 
-        ex.name.toLowerCase().includes(filterText.toLowerCase().trim())
-    );
+        const filtered = exList.filter(ex => 
+            ex.name.toLowerCase().includes(query.toLowerCase().trim())
+        );
 
-    if (filtered.length === 0) {
-        ratingListContainer.innerHTML = "<p style='text-align:center; color:#888;'>No exercises found.</p>";
-        return;
+        if (filtered.length === 0) {
+            ratingBox.innerHTML = "<p style='text-align:center; color:#888;'>No exercises found.</p>";
+            return;
+        }
+
+        filtered.forEach(ex => {
+            const card = document.createElement("div");
+            card.className = "rating-item-card";
+
+            const baseScore = defaultScores[ex.id] || 4.5;
+            const commData = userRatings[ex.id] || { score: baseScore, count: 1 };
+
+            card.innerHTML = `
+                <h4>${ex.name}</h4>
+                <div class="ratings-display">
+                    <span><strong>Page Rating:</strong> ★ ${baseScore.toFixed(1)}</span>
+                    <span><strong>Community:</strong> ★ ${commData.score.toFixed(1)} (${commData.count})</span>
+                </div>
+                <div class="user-vote-control">
+                    <span>Your Rating:</span>
+                    <select class="star-select" id="select-${ex.id}">
+                        <option value="" disabled selected>Rate</option>
+                        <option value="0.5">0.5 ★</option>
+                        <option value="1.0">1.0 ★</option>
+                        <option value="1.5">1.5 ★</option>
+                        <option value="2.0">2.0 ★</option>
+                        <option value="2.5">2.5 ★</option>
+                        <option value="3.0">3.0 ★</option>
+                        <option value="3.5">3.5 ★</option>
+                        <option value="4.0">4.0 ★</option>
+                        <option value="4.5">4.5 ★</option>
+                        <option value="5.0">5.0 ★</option>
+                    </select>
+                    <button type="button" class="submit-rating-btn" data-id="${ex.id}">Submit Rating</button>
+                </div>
+                <p class="rating-status hidden" id="status-${ex.id}">★ Rating saved!</p>
+            `;
+
+            const btnSub = card.querySelector(".submit-rating-btn");
+            const selectElem = card.querySelector(".star-select");
+
+            btnSub.addEventListener("click", () => {
+                const val = parseFloat(selectElem.value);
+
+                if (isNaN(val)) {
+                    alert("Please select a rating before submitting.");
+                    return;
+                }
+
+                const ok = confirm(`Are you sure you want to rate "${ex.name}" with ${val} stars?`);
+                if (!ok) return;
+
+                const curr = userRatings[ex.id] || { score: baseScore, count: 1 };
+                const newCount = curr.count + 1;
+                const newScore = ((curr.score * curr.count) + val) / newCount;
+
+                userRatings[ex.id] = { score: newScore, count: newCount };
+                localStorage.setItem("fitguide_community_ratings", JSON.stringify(userRatings));
+
+                renderRatingList(searchInput ? searchInput.value : "");
+            });
+
+            ratingBox.appendChild(card);
+        });
     }
 
-    filtered.forEach(ex => {
-        const card = document.createElement("div");
-        card.className = "rating-item-card";
-
-        const officialScore = officialRatings[ex.id] || 4.5;
-        const commData = communityRatings[ex.id] || { score: officialScore, count: 1 };
-
-        card.innerHTML = `
-            <h4>${ex.name}</h4>
-            <div class="ratings-display">
-                <span><strong>Page Rating:</strong> ★ ${officialScore.toFixed(1)}</span>
-                <span><strong>Community:</strong> ★ ${commData.score.toFixed(1)} (${commData.count})</span>
-            </div>
-            <div class="user-vote-control">
-                <span>Your Rating:</span>
-                <select class="star-select" id="select-${ex.id}">
-                    <option value="" disabled selected>Rate</option>
-                    <option value="0.5">0.5 ★</option>
-                    <option value="1.0">1.0 ★</option>
-                    <option value="1.5">1.5 ★</option>
-                    <option value="2.0">2.0 ★</option>
-                    <option value="2.5">2.5 ★</option>
-                    <option value="3.0">3.0 ★</option>
-                    <option value="3.5">3.5 ★</option>
-                    <option value="4.0">4.0 ★</option>
-                    <option value="4.5">4.5 ★</option>
-                    <option value="5.0">5.0 ★</option>
-                </select>
-                <button type="button" class="submit-rating-btn" data-id="${ex.id}">Submit Rating</button>
-            </div>
-            <p class="rating-status hidden" id="status-${ex.id}">★ Rating saved!</p>
-        `;
-
-        const submitBtn = card.querySelector(".submit-rating-btn");
-        const select = card.querySelector(".star-select");
-        const statusMsg = card.querySelector(".rating-status");
-
-        submitBtn.addEventListener("click", () => {
-            const userVal = parseFloat(select.value);
-
-            if (isNaN(userVal)) {
-                alert("Please select a rating before submitting.");
-                return;
-            }
-
-            // Confirmación para evitar miss-clicks
-            const confirmVote = confirm(`Are you sure you want to rate "${ex.name}" with ${userVal} stars?`);
-            if (!confirmVote) return;
-
-            const currentData = communityRatings[ex.id] || { score: officialScore, count: 1 };
-            const newCount = currentData.count + 1;
-            const newScore = ((currentData.score * currentData.count) + userVal) / newCount;
-
-            communityRatings[ex.id] = { score: newScore, count: newCount };
-            localStorage.setItem("fitguide_community_ratings", JSON.stringify(communityRatings));
-
-            renderRatingList(ratingSearchInput ? ratingSearchInput.value : "");
-        });
-
-        ratingListContainer.appendChild(card);
-    });
-}
-
-    if (ratingSearchInput) {
-        ratingSearchInput.addEventListener("input", (e) => {
+    if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
             renderRatingList(e.target.value);
         });
     }
 
     renderRatingList();
 
-    // 4. COMENTARIOS CON ESTILO ANIME / FORO HORIZONTAL
-    const publicCommentForm = document.getElementById("publicCommentForm");
-    const commentsFeed = document.getElementById("commentsFeed");
+    const cmtForm = document.getElementById("publicCommentForm");
+    const cmtFeed = document.getElementById("commentsFeed");
 
-    const defaultComments = [
-        { id: 1, name: "Katm", date: "hace 1 año", text: "recien el 14 pq me fui a dormir", likes: 1 },
-        { id: 2, name: "Screened", date: "hace 6 meses", text: "Menuda obra de arte", likes: 0 }
+    const sampleComments = [
+        { id: 1, name: "Katm", date: "1 year ago", text: "Finally got my routine structured properly, great site!", likes: 1 },
+        { id: 2, name: "Screened", date: "6 months ago", text: "The exercise database is really helpful.", likes: 0 }
     ];
 
-    let commentsList = JSON.parse(localStorage.getItem("fitguide_public_comments")) || defaultComments;
+    let commentsData = JSON.parse(localStorage.getItem("fitguide_public_comments")) || sampleComments;
 
     function renderComments() {
-        if (!commentsFeed) return;
-        commentsFeed.innerHTML = "";
+        if (!cmtFeed) return;
+        cmtFeed.innerHTML = "";
 
-        commentsList.forEach(item => {
-            const initial = item.name ? item.name.charAt(0).toUpperCase() : "U";
+        commentsData.forEach(item => {
+            const letter = item.name ? item.name.charAt(0).toUpperCase() : "U";
             
             const card = document.createElement("article");
-            card.className = "anime-comment-card";
+            card.className = "cmt-card";
             card.innerHTML = `
-                <div class="anime-avatar">${initial}</div>
-                <div class="anime-comment-content">
-                    <div class="anime-comment-meta">
-                        <span class="anime-user-name">${item.name}</span>
-                        <span class="anime-time">${item.date}</span>
+                <div class="usr-avatar">${letter}</div>
+                <div class="cmt-body">
+                    <div class="cmt-meta">
+                        <span class="usr-name">${item.name}</span>
+                        <span class="cmt-date">${item.date}</span>
                     </div>
-                    <div class="anime-text">${item.text}</div>
-                    <div class="anime-actions">
-                        <button class="like-btn" data-id="${item.id}">👍 <span>${item.likes || 0}</span></button>
+                    <div class="cmt-txt">${item.text}</div>
+                    <div class="cmt-actions">
+                        <button class="btn-like" data-id="${item.id}">👍 <span>${item.likes || 0}</span></button>
                     </div>
                 </div>
             `;
 
-            const likeBtn = card.querySelector(".like-btn");
+            const likeBtn = card.querySelector(".btn-like");
             likeBtn.addEventListener("click", () => {
                 item.likes = (item.likes || 0) + 1;
-                localStorage.setItem("fitguide_public_comments", JSON.stringify(commentsList));
+                localStorage.setItem("fitguide_public_comments", JSON.stringify(commentsData));
                 renderComments();
             });
 
-            commentsFeed.appendChild(card);
+            cmtFeed.appendChild(card);
         });
     }
 
-    if (publicCommentForm) {
-        publicCommentForm.addEventListener("submit", (e) => {
+    if (cmtForm) {
+        cmtForm.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const nameInput = document.getElementById("userName");
-            const commentInput = document.getElementById("userComment");
+            const nameVal = document.getElementById("userName").value.trim();
+            const textVal = document.getElementById("userComment").value.trim();
 
-            const newComment = {
+            const newCmt = {
                 id: Date.now(),
-                name: nameInput.value.trim(),
-                date: "hace un momento",
-                text: commentInput.value.trim(),
+                name: nameVal,
+                date: "just now",
+                text: textVal,
                 likes: 0
             };
 
-            commentsList.unshift(newComment);
-            localStorage.setItem("fitguide_public_comments", JSON.stringify(commentsList));
+            commentsData.unshift(newCmt);
+            localStorage.setItem("fitguide_public_comments", JSON.stringify(commentsData));
 
-            publicCommentForm.reset();
+            cmtForm.reset();
             renderComments();
         });
     }

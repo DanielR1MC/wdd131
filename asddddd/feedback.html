@@ -25,16 +25,13 @@
     </header>
 
     <main class="feedback-layout">
-        <section class="feedback-hero-full">
+        <section class="feedback-hero">
             <h1>FitGuide Community Hub</h1>
             <p>Rate our exercises, submit suggestions, or post comments for the community.</p>
         </section>
 
-        <!-- Grilla Superior: 2 Cards -->
         <div class="top-cards-grid">
-            
-            <!-- Card Izquierda: Sugerencias Privadas -->
-            <article class="side-card recommendation-card">
+            <article class="side-card sug-card">
                 <h2>Quick Suggestions</h2>
                 <p>Have an exercise idea or site improvement?</p>
                 
@@ -50,13 +47,12 @@
                         <label for="suggestionText">Your Suggestion</label>
                         <textarea id="suggestionText" rows="5" placeholder="Share your idea here..." required></textarea>
                     </div>
-                    <button type="submit" class="action-btn">Submit Suggestion</button>
+                    <button type="submit" class="btn-submit">Submit Suggestion</button>
                     <p id="suggestionSuccess" class="form-status hidden">Thank you! Your suggestion has been recorded.</p>
                 </form>
             </article>
 
-            <!-- Card Derecha: Rating de Ejercicios -->
-            <article class="side-card exercise-rating-card">
+            <article class="side-card rating-card">
                 <h2>Exercise Ratings</h2>
                 <p>Search and rate exercises from our library.</p>
                 
@@ -64,19 +60,15 @@
                     <input type="text" id="ratingSearchInput" placeholder="Search exercise (e.g. Bench, Squat)...">
                 </div>
 
-                <div id="exerciseRatingList" class="scrollable-feed">
-                    <!-- Contenido dinamico generado desde JS -->
-                </div>
+                <div id="exerciseRatingList" class="rating-scroll"></div>
             </article>
-
         </div>
 
-        <!-- Sección Inferior: Comentarios con Estilo Anime / Foro -->
-        <section class="public-comments-fullwidth">
+        <section class="public-comments">
             <h2>Public Community Comments</h2>
             <p>Leave a public comment for all visitors to see.</p>
 
-            <form id="publicCommentForm" class="comment-box-clean">
+            <form id="publicCommentForm" class="comment-box">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="userName">Name</label>
@@ -88,14 +80,12 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <textarea id="userComment" rows="3" placeholder="Escribe tu comentario..." required></textarea>
+                    <textarea id="userComment" rows="3" placeholder="Write your comment here..." required></textarea>
                 </div>
-                <button type="submit" class="action-btn-post">Post Comment</button>
+                <button type="submit" class="btn-post">Post Comment</button>
             </form>
 
-            <div id="commentsFeed" class="comments-feed">
-                <!-- Comentarios en formato horizontal ancho -->
-            </div>
+            <div id="commentsFeed" class="comments-feed"></div>
         </section>
     </main>
 
