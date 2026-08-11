@@ -564,6 +564,8 @@ const exercises = [
     }
 ];
 
+
+
 let activeCategory = "all";
 let activeEquipment = "all";
 
@@ -645,7 +647,7 @@ function applyFilters() {
 document.addEventListener("DOMContentLoaded", () => {
     displayExercises(exercises);
 
-    
+
     const searchInput = document.getElementById("searchInput");
     if (searchInput) {
         searchInput.addEventListener("input", applyFilters);
