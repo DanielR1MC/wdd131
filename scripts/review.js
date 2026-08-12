@@ -3,8 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   reviewCount += 1;
   localStorage.setItem("reviewCount", reviewCount);
 
-  const currentYear = new Date().getFullYear();
-  document.getElementById("currentyear").textContent = currentYear;
+  document.getElementById("review-counter").textContent = reviewCount;
 
-  document.getElementById("lastModified").innerHTML = document.lastModified;
+  
+  document.getElementById("currentyear").textContent = new Date().getFullYear();
+  document.getElementById("lastModified").textContent = `Last Modification: ${document.lastModified}`;
 });

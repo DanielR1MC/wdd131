@@ -1,8 +1,3 @@
-const currentYear = new Date().getFullYear();
-document.getElementById("currentyear").textContent = currentYear;
-
-document.getElementById("lastModified").innerHTML = document.lastModified;
-
 const products = [
   {
     id: "fc-1888",
@@ -41,5 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     selectElement.appendChild(option);
   });
 
-  document.getElementById("current-year").textContent = new Date().getFullYear();
+
+  
+  document.getElementById("currentyear").textContent = new Date().getFullYear();
+  document.getElementById("lastModified").textContent = `Last Modification: ${document.lastModified}`;
 });
