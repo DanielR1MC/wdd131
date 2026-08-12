@@ -1,0 +1,133 @@
+:root {
+  --primary-color: #3f2066;
+  --secondary-color: #f4f0f8;
+  --text-color: #222222;
+  --border-color: #cccccc;
+  --accent-color: #4b0082;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background-color: #f9f9f9;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+main {
+  flex: 1;
+  width: 90%;
+  max-width: 500px;
+  margin: 2rem auto;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  border: 1px solid var(--border-color);
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1.2rem;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 0.3rem;
+  font-size: 0.9rem;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.rating-container {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.rating-container label {
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.checkbox-group label {
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: var(--accent-color);
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+}
+
+.confirmation-card {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.counter-text {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
