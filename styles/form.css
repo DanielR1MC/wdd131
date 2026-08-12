@@ -147,7 +147,10 @@ footer p {
   font-size: 1.1rem;
   font-weight: bold;
 }
-
+.required {
+  color: red;
+  font-weight: bold;
+}
 @media (min-width: 600px) {
   main {
     padding: 2rem;

@@ -19,14 +19,14 @@
   <main>
     <form method="get" action="review.html">
       <div class="form-group">
-        <label for="product">Product Name</label>
+        <label for="product">Product Name <span class="required">*</span></label>
         <select id="product" name="product" required>
           <option value="" disabled selected>Select a Product ...</option>
         </select>
       </div>
 
       <fieldset class="form-group">
-        <legend>Overall Rating</legend>
+        <legend>Overall Rating <span class="required">*</span></legend>
         <div class="rating-container">
           <input type="radio" id="star1" name="rating" value="1" required>
           <label for="star1">★1</label>
@@ -42,7 +42,7 @@
       </fieldset>
 
       <div class="form-group">
-        <label for="install-date">Date of Installation</label>
+        <label for="install-date">Date of Installation <span class="required">*</span></label>
         <input type="date" id="install-date" name="install-date" required>
       </div>
 
@@ -81,9 +81,9 @@
       <input type="submit" value="Post Review" class="submit-btn">
     </form>
   </main>
-    <footer>
-        <p> <span id="currentyear"></span> ©️ Daniel Reyes - Venezuela </p>
-        <p id="lastModified"></p>
-    </footer>
+  <footer>
+    <p><span id="currentyear"></span> ©️ Daniel Reyes - Venezuela</p>
+    <p id="lastModified"></p>
+  </footer>
 </body>
 </html>
