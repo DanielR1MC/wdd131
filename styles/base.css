@@ -6,8 +6,16 @@
 }
 
 header {
-    padding-top: 10px;
     background-color: #2B5748;
+    position: relative;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: relative;
 }
 
 #course-title {
@@ -18,6 +26,25 @@ header {
     font-size: 18px;
 }
 
+#menu {
+    display: none;
+    font-size: 1.8rem;
+    border: 0;
+    background: none;
+    color: white;
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+}
+
+#menu::before {
+    content: "☰";
+}
+
+#menu.show::before {
+    content: "✕";
+}
+
 main {
     display: block;
     width: 100%;
@@ -26,7 +53,6 @@ main {
 .main-n {
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
     background-color: #9CB080;
 }
 
@@ -51,10 +77,12 @@ h1 {
 .cards {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
+    align-items: stretch;
+    gap: 30px;
     font-size: 16px;
     padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
@@ -64,16 +92,15 @@ h1 {
     margin: 20px 0;
     border-radius: 15px; 
     overflow: hidden; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 15px black;
 }
 
 .card1 {
-    width: 65%;
-    max-width: 800px;
+    flex: 2;
 }
 
 .card2 {
-    width: 300px;
+    flex: 1;
 }
 
 .c1r1, .c1r2 {
@@ -90,14 +117,16 @@ h1 {
 
 .img1 {
     margin: 20px;
+    width: 100%;
+    max-width: 180px;
     height: auto;
-    max-width: 200px;
     object-fit: cover;
+    border-radius: 8px;
 }
 
 .img2 {
     margin: 10px;
-    max-width: 150px;
+    max-width: 140px;
     height: auto;
 }
 
@@ -106,7 +135,8 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 12px;
+    flex-grow: 1;
+    gap: 16px;
 }
 
 .mid-nav li a:hover {
@@ -139,15 +169,31 @@ footer {
 }
 
 @media (max-width: 768px) {
+    #menu {
+        display: block;
+    }
+
     .main-n {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
         flex-direction: column;
         align-items: center;
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .main-n.show {
+        display: flex;
     }
 
     .main-a {
         width: 100%;
         text-align: center;
         padding: 0.75rem;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 
     .cards {
@@ -158,7 +204,6 @@ footer {
 
     .card1, .card2 {
         width: 100%;
-        max-width: 100%;
         margin: 10px 0;
     }
 
@@ -167,9 +212,14 @@ footer {
         text-align: center;
     }
 
-    .img1, .img2 {
+    .img1 {
+        max-width: 150px;
         margin: 10px auto;
-        max-width: 80%;
+    }
+
+    .img2 {
+        max-width: 120px;
+        margin: 10px auto;
     }
 
     div p {
