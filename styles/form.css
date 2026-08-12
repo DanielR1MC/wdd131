@@ -78,6 +78,7 @@ textarea {
   border-radius: 4px;
   font-size: 1rem;
   width: 100%;
+  resize: none;
 }
 
 .rating-container {
