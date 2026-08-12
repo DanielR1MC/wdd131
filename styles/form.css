@@ -150,6 +150,7 @@ footer p {
 .required {
   color: red;
   font-weight: bold;
+  font-size: 1.5rem;
 }
 @media (min-width: 600px) {
   main {
