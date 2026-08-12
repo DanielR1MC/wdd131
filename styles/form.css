@@ -1,9 +1,10 @@
 :root {
-  --primary-color: #3f2066;
-  --secondary-color: #f4f0f8;
-  --text-color: #222222;
+  --primary-color: #2B5748;
+  --secondary-color: #9CB080;
+  --accent-color: #FFFF00;
+  --text-color: #000000;
+  --text-color2: #ffffff;
   --border-color: #cccccc;
-  --accent-color: #4b0082;
 }
 
 * {
@@ -15,7 +16,7 @@
 body {
   font-family: Arial, sans-serif;
   color: var(--text-color);
-  background-color: #f9f9f9;
+  background-color: #f4f4f4;
   line-height: 1.5;
   display: flex;
   flex-direction: column;
@@ -24,20 +25,20 @@ body {
 
 header {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--text-color2);
   text-align: center;
-  padding: 1rem;
+  padding: 1.2rem;
 }
 
 main {
   flex: 1;
   width: 90%;
-  max-width: 500px;
+  max-width: 550px;
   margin: 2rem auto;
   background: white;
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .form-group {
@@ -49,14 +50,17 @@ main {
 fieldset {
   border: 1px solid var(--border-color);
   padding: 0.8rem;
-  border-radius: 4px;
+  border-radius: 6px;
   margin-bottom: 1.2rem;
 }
 
 legend {
   font-weight: bold;
-  padding: 0 0.3rem;
-  font-size: 0.9rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.95rem;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border-radius: 4px;
 }
 
 label {
@@ -69,7 +73,7 @@ input[type="text"],
 input[type="date"],
 select,
 textarea {
-  padding: 0.5rem;
+  padding: 0.6rem;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   font-size: 1rem;
@@ -80,6 +84,7 @@ textarea {
   display: flex;
   gap: 0.8rem;
   align-items: center;
+  margin-top: 0.5rem;
 }
 
 .rating-container label {
@@ -91,6 +96,7 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  margin-top: 0.5rem;
 }
 
 .checkbox-group label {
@@ -100,25 +106,37 @@ textarea {
 
 .submit-btn {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--text-color2);
   border: none;
   padding: 0.8rem 1.5rem;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  font-weight: bold;
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
+  transition: background-color 0.2s ease;
 }
 
 .submit-btn:hover {
-  background-color: var(--accent-color);
+  background-color: var(--secondary-color);
+  color: var(--text-color);
 }
 
 footer {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--text-color2);
+  padding: 1.5rem;
   text-align: center;
-  padding: 1rem;
-  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+footer p {
+  margin-bottom: 0.3rem;
+}
+
+#lastModified {
+  color: var(--accent-color);
+  font-weight: bold;
 }
 
 .confirmation-card {
