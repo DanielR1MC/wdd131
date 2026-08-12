@@ -28,18 +28,13 @@ const products = [
 
 document.addEventListener("DOMContentLoaded", () => {
   const selectElement = document.getElementById("product");
-  
-  if (selectElement) {
-    products.forEach((product) => {
-      const option = document.createElement("option");
-      option.value = product.id;
-      option.textContent = product.name;
-      selectElement.appendChild(option);
-    });
-  }
 
-  const yearSpan = document.getElementById("current-year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+  products.forEach((product) => {
+    const option = document.createElement("option");
+    option.value = product.id;
+    option.textContent = product.name;
+    selectElement.appendChild(option);
+  });
+
+  document.getElementById("current-year").textContent = new Date().getFullYear();
 });

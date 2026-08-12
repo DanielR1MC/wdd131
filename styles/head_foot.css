@@ -1,0 +1,20 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+header{
+    padding-top: 10px;
+    background-color: #2B5748;
+}
+
+footer{
+    background-color:#2B5748 ;
+    padding: 34px;
+    text-align: center;
+    color: white;
+}
+#lastModified{
+    color: yellow;
+}

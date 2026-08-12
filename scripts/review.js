@@ -3,13 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   reviewCount += 1;
   localStorage.setItem("reviewCount", reviewCount);
 
-  const counterDisplay = document.getElementById("review-counter");
-  if (counterDisplay) {
-    counterDisplay.textContent = reviewCount;
-  }
-
-  const yearSpan = document.getElementById("current-year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+  document.getElementById("review-counter").textContent = reviewCount;
+  document.getElementById("current-year").textContent = new Date().getFullYear();
 });
